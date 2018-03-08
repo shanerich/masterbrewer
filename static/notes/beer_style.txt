@@ -1,0 +1,169 @@
+Altbier
+American Wild Ale
+Applewine
+Australian Sparkling Ale
+Barleywine - American
+Barleywine - English
+Barleywine - Other
+Belgian Blond(e)
+Belgian Dubbel
+Belgian Quad
+Belgian Strong Dark Ale
+Belgian Strong Golden Ale
+Belgian Tripel
+Bière de Champagne / Bière Brut
+Bière de Garde
+Black &amp; Tan
+Blonde Ale
+Blonde Ale - Belgian Blonde / Golden
+Bock
+Brown Ale - American
+Brown Ale - Belgian
+Brown Ale - English
+Brown Ale - Imperial / Double
+Brown Ale - Other
+Burton Ale
+California Common
+Cider
+Cream Ale
+Dampfbier
+Dark Ale
+Doppelbock
+Dunkelweizen
+Eisbock
+English Bitter
+English Mild Ale
+Extra Special / Strong Bitter
+Festbier
+Fruit Beer
+Ginger Beer
+Gluten-Free
+Golden Ale
+Grisette
+Gruit / Ancient Herbed Ale
+Grätzer / Grodziskie
+Happoshu
+Hefeweizen
+Hefeweizen Light / Leicht
+Honey Beer
+IPA - American
+IPA - Belgian
+IPA - Black / Cascadian Dark Ale
+IPA - English
+IPA - Imperial / Double
+IPA - Imperial / Double Black
+IPA - International
+IPA - New England
+IPA - Red
+IPA - Rye
+IPA - Session / India Session Ale
+IPA - Triple
+IPA - White
+Kellerbier / Zwickelbier
+Kombucha
+Kristallweizen
+Kvass
+Kölsch
+Lager - Amber
+Lager - American Amber / Red
+Lager - American Light
+Lager - Dark
+Lager - Dortmunder / Export
+Lager - Dunkel Munich
+Lager - Euro
+Lager - Euro Dark
+Lager - Euro Strong
+Lager - Helles
+Lager - IPL (India Pale Lager)
+Lager - Japanese Rice
+Lager - North American Adjunct
+Lager - Pale
+Lager - Red
+Lager - Vienna
+Lager - Winter
+Lambic - Faro
+Lambic - Framboise
+Lambic - Fruit
+Lambic - Gueuze
+Lambic - Kriek
+Lambic - Traditional
+Maibock / Heller (Helles) Bock
+Malt Beer
+Malt Liquor 
+Mead - Braggot
+Mead - Cyser
+Mead - Melomel
+Mead - Metheglin
+Mead - Other
+Mead - Pyment
+Mumme
+Märzen
+Non-Alcoholic
+Old Ale
+Other
+Pale Ale - American
+Pale Ale - Australian
+Pale Ale - Belgian
+Pale Ale - English
+Pale Ale - International
+Pale Ale - New Zealand
+Pale Wheat Ale - American
+Patersbier
+Perry
+Pilsner - Czech
+Pilsner - German
+Pilsner - Imperial / Double
+Pilsner - Other
+Porter - American
+Porter - Baltic
+Porter - English
+Porter - Imperial / Double
+Porter - Other
+Pumpkin / Yam Beer
+Pumpkin / Yam Beer - Imperial
+Rauchbier
+Red Ale - American Amber / Red
+Red Ale - Imperial / Double
+Red Ale - Irish
+Red Ale - Other
+Roggenbier
+Root Beer
+Rye Beer
+Sahti
+Saison / Farmhouse Ale
+Schwarzbier
+Scotch Ale / Wee Heavy
+Scottish Ale
+Scottish Export Ale
+Shandy / Radler
+Smoked Beer
+Sour - Ale
+Sour - Berliner Weisse
+Sour - Farmhouse IPA
+Sour - Flanders Oud Bruin
+Sour - Flanders Red Ale
+Sour - Gose
+Specialty Grain
+Spiced / Herbed Beer
+Stout - American
+Stout - American Imperial / Double
+Stout - Foreign / Export
+Stout - Imperial / Double
+Stout - Imperial Milk / Sweet
+Stout - Imperial Oatmeal
+Stout - Irish Dry
+Stout - Milk / Sweet
+Stout - Oatmeal
+Stout - Other
+Stout - Oyster
+Stout - Russian Imperial
+Strong Ale - American
+Strong Ale - English
+Table Beer
+Traditional Ale
+Weizenbock
+Wheat Wine
+Winter Ale
+Winter Warmer
+Witbier
+Zoigl

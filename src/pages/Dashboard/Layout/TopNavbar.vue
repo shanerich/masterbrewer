@@ -18,13 +18,14 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end">
         <ul class="nav navbar-nav mr-auto">
+          <!-- 
           <form class="navbar-form navbar-left navbar-search-form" role="search">
             <div class="input-group">
               <label for="searchInput"></label>
               <i class="nc-icon nc-zoom-split"></i>
               <input id="searchInput" type="text" value="" class="form-control" placeholder="Search...">
             </div>
-          </form>
+          </form> -->
         </ul>
         <ul class="navbar-nav">
           <drop-down>

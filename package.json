@@ -1,8 +1,8 @@
 {
   "name": "vue-light-bootstrap-dashboard",
   "version": "1.0.0",
-  "description": "Vue light bootstrap dashboard",
-  "author": "cristijora <joracristi@gmail.com>",
+  "description": "Master Brewer",
+  "author": "shanerich <shanerich@gmail.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -18,6 +18,7 @@
     "easy-pie-chart": "^2.1.7",
     "element-ui": "^2.2.0",
     "es6-promise": "^4.1.1",
+    "firebase": "^4.10.1",
     "fullcalendar": "^3.7.0",
     "fuse.js": "^3.2.0",
     "google-maps": "^3.2.1",
@@ -34,6 +35,7 @@
     "vue-notifyjs": "^0.3.0",
     "vue-router": "^3.0.1",
     "vue2-google-maps": "^0.8.4",
+    "vuefire": "^1.4.5",
     "vuex": "^3.0.1",
     "web3": "^0.20.0"
   },

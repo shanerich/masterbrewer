@@ -1,8 +1,10 @@
+import 'firebase'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import LightBootstrap from './light-bootstrap-main'
 // Plugins
 import App from './App.vue'
+import VueFire from 'vuefire'
 
 // router setup
 import routes from './routes/routes'
@@ -11,6 +13,7 @@ import { store } from './store/index'
 // plugin setup
 Vue.use(VueRouter)
 Vue.use(LightBootstrap)
+Vue.use(VueFire)
 
 // configure router
 const router = new VueRouter({

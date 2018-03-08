@@ -43,11 +43,11 @@
     props: {
       title: {
         type: String,
-        default: 'Vue LBD PRO'
+        default: 'Master Brewer'
       },
       backgroundColor: {
         type: String,
-        default: 'black',
+        default: 'orange',
         validator: (value) => {
           let acceptedValues = ['', 'blue', 'azure', 'green', 'orange', 'red', 'purple', 'black']
           return acceptedValues.indexOf(value) !== -1
@@ -67,7 +67,8 @@
       },
       logo: {
         type: String,
-        default: 'static/img/vue-logo.png'
+        //default: 'static/img/vue-logo.png'
+        default: 'static/img/master-brewer-logo.png'
       },
       sidebarLinks: {
         type: Array,
@@ -109,6 +110,12 @@
 
 </script>
 <style>
+  .sidebar .logo-img {
+      background: transparent;
+  }
+  .sidebar .logo-img img {
+      max-width: 34px;
+  }
   @media (min-width: 992px) {
     .navbar-search-form-mobile,
     .nav-mobile-menu{

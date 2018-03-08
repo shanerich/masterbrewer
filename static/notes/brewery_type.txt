@@ -1,0 +1,6 @@
+Macro Brewery (Greater than 6M Barrels / Year)
+Micro Brewery (Less than 6M Barrels / Year)
+Nano Brewery (Less than 200 Gallons / Year, Sells Commercially)
+Brew Pub (Brews / Sells on Premise, at least 25%)
+Collaboration Brewery (Two breweries brewing where there is no host brewery)
+Cidery / Meadery (Produces Ciders or Meads)

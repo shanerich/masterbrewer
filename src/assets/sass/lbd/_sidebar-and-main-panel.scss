@@ -431,7 +431,7 @@
     @include icon-gradient($color-green, rgba($green-color-bottom,.7));
   }
   &[data-color="orange"]:after{
-    @include icon-gradient($color-orange, rgba($orange-color-bottom,.7));
+    @include icon-gradient($color-orange, #f5e2c1);
   }
   &[data-color="red"]:after{
     @include icon-gradient($color-red, rgba($red-color-bottom,.7));

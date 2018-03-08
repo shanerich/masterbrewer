@@ -12,6 +12,9 @@ import Login from 'src/pages/Dashboard/Pages/Login.vue'
 import Register from 'src/pages/Dashboard/Pages/Register.vue'
 import Lock from 'src/pages/Dashboard/Pages/Lock.vue'
 
+// Admin pages
+import CreateBrewery from 'src/pages/Dashboard/Admin/CreateBrewery.vue'
+
 // Components pages
 import Buttons from 'src/pages/Dashboard/Components/Buttons.vue'
 import GridSystem from 'src/pages/Dashboard/Components/GridSystem.vue'
@@ -41,6 +44,18 @@ const Calendar = () => import('src/pages/Dashboard/Calendar/CalendarRoute.vue')
 // Charts
 const Charts = () => import('src/pages/Dashboard/Charts.vue')
 
+let adminMenu = {
+  path: '/admin',
+  component: DashboardLayout,
+  redirect: '/admin/createbrewery',
+  children: [
+    {
+      path: 'createbrewery',
+      name: 'Create Brewery',
+      component: CreateBrewery
+    }
+  ]
+}
 let componentsMenu = {
   path: '/components',
   component: DashboardLayout,
@@ -198,6 +213,7 @@ const routes = [
     path: '/',
     redirect: '/admin/overview'
   },
+  adminMenu,
   componentsMenu,
   formsMenu,
   tablesMenu,

@@ -1,26 +1,25 @@
 <template>
   <footer class="footer">
     <div class="container-fluid d-flex flex-wrap justify-content-between">
-      <nav>
-        <ul class="footer-menu">
-          <li>
-            <router-link :to="{path:'/admin'}">Dashboard</router-link>
-          </li>
-        </ul>
-      </nav>
       <div class="copyright">
-        &copy; Coded with
-        <i class="fa fa-heart heart"></i> by
-        <a href="https://github.com/cristijora" target="_blank">Cristi Jora</a>.
-        Designed by <a href="https://www.creative-tim.com/?ref=pdf-vuejs" target="_blank" rel="noopener">Creative Tim</a>.
+        &copy; {{ currentYear }} MasterBrewer. All Rights Reserved.
       </div>
     </div>
   </footer>
 </template>
 <script>
-  export default {}
+  export default {
+    data() {
+      return {
+        currentYear: new Date().getFullYear()
+      }
+    }
+  }
 
 </script>
 <style>
-
+.copyright {
+  width: 100%;
+  text-align: right;
+}
 </style>

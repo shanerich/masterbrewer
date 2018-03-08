@@ -7,6 +7,9 @@
       <template slot-scope="props" slot="links">
         <sidebar-item :link="{name: 'Dashboard', icon: 'nc-icon nc-chart-pie-35', path: '/admin/overview'}">
         </sidebar-item>
+        <sidebar-item :link="{name: 'Admin', icon: 'nc-icon nc-settings-gear-64'}">
+          <sidebar-item :link="{name: 'Create Brewery', path: '/admin/createbrewery'}"></sidebar-item>
+        </sidebar-item>
         <sidebar-item :link="{name: 'Components', icon: 'nc-icon nc-app'}">
           <sidebar-item :link="{name: 'Buttons', path: '/components/buttons'}"></sidebar-item>
           <sidebar-item :link="{name: 'Grid System', path: '/components/grid-system'}"></sidebar-item>
