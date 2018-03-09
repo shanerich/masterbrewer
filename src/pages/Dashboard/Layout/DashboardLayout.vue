@@ -9,6 +9,7 @@
         </sidebar-item>
         <sidebar-item :link="{name: 'Admin', icon: 'nc-icon nc-settings-gear-64'}">
           <sidebar-item :link="{name: 'Create Brewery', path: '/admin/createbrewery'}"></sidebar-item>
+          <sidebar-item :link="{name: 'Create Beer', path: '/admin/createbeer'}"></sidebar-item>
         </sidebar-item>
         <sidebar-item :link="{name: 'Components', icon: 'nc-icon nc-app'}">
           <sidebar-item :link="{name: 'Buttons', path: '/components/buttons'}"></sidebar-item>

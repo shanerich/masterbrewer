@@ -14,6 +14,7 @@ import Lock from 'src/pages/Dashboard/Pages/Lock.vue'
 
 // Admin pages
 import CreateBrewery from 'src/pages/Dashboard/Admin/CreateBrewery.vue'
+import CreateBeer from 'src/pages/Dashboard/Admin/CreateBeer.vue'
 
 // Components pages
 import Buttons from 'src/pages/Dashboard/Components/Buttons.vue'
@@ -53,6 +54,11 @@ let adminMenu = {
       path: 'createbrewery',
       name: 'Create Brewery',
       component: CreateBrewery
+    },
+    {
+      path: 'createbeer',
+      name: 'Create Beer',
+      component: CreateBeer
     }
   ]
 }

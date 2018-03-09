@@ -10,11 +10,11 @@
         <a class="logo-mini"
            href="https://www.creative-tim.com/product/vue-light-bootstrap-dashboard-pro">
           <div class="logo-img">
-              <img :src="logo" alt="logo">
+              <img :src="logo" alt="Master Brewer MB logo">
           </div>
         </a>
         <a href="" class="simple-text logo-normal">
-          {{ title }}
+          <img :src="title" alt="Master Brewer">
         </a>
       </div>
       <slot>
@@ -43,7 +43,8 @@
     props: {
       title: {
         type: String,
-        default: 'Master Brewer'
+        default: 'static/img/master-brewer-logo-text-grad.png'
+        //default: 'Master Brewer'
       },
       backgroundColor: {
         type: String,
@@ -55,7 +56,8 @@
       },
       backgroundImage: {
         type: String,
-        default: 'static/img/sidebar-5.jpg'
+        //default: 'static/img/sidebar-5.jpg'
+        default: 'static/img/bubbles2.jpg'
       },
       activeColor: {
         type: String,
@@ -68,7 +70,7 @@
       logo: {
         type: String,
         //default: 'static/img/vue-logo.png'
-        default: 'static/img/master-brewer-logo.png'
+        default: 'static/img/master-brewer-logo-white.png'
       },
       sidebarLinks: {
         type: Array,
@@ -115,6 +117,9 @@
   }
   .sidebar .logo-img img {
       max-width: 34px;
+  }
+  .sidebar .logo .simple-text {
+    line-height: 27px;
   }
   @media (min-width: 992px) {
     .navbar-search-form-mobile,
