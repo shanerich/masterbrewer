@@ -1,169 +1,169 @@
-Altbier
-American Wild Ale
-Applewine
-Australian Sparkling Ale
-Barleywine - American
-Barleywine - English
-Barleywine - Other
-Belgian Blond(e)
-Belgian Dubbel
-Belgian Quad
-Belgian Strong Dark Ale
-Belgian Strong Golden Ale
-Belgian Tripel
-Bière de Champagne / Bière Brut
-Bière de Garde
-Black &amp; Tan
-Blonde Ale
-Blonde Ale - Belgian Blonde / Golden
-Bock
-Brown Ale - American
-Brown Ale - Belgian
-Brown Ale - English
-Brown Ale - Imperial / Double
-Brown Ale - Other
-Burton Ale
-California Common
-Cider
-Cream Ale
-Dampfbier
-Dark Ale
-Doppelbock
-Dunkelweizen
-Eisbock
-English Bitter
-English Mild Ale
-Extra Special / Strong Bitter
-Festbier
-Fruit Beer
-Ginger Beer
-Gluten-Free
-Golden Ale
-Grisette
-Gruit / Ancient Herbed Ale
-Grätzer / Grodziskie
-Happoshu
-Hefeweizen
-Hefeweizen Light / Leicht
-Honey Beer
-IPA - American
-IPA - Belgian
-IPA - Black / Cascadian Dark Ale
-IPA - English
-IPA - Imperial / Double
-IPA - Imperial / Double Black
-IPA - International
-IPA - New England
-IPA - Red
-IPA - Rye
-IPA - Session / India Session Ale
-IPA - Triple
-IPA - White
-Kellerbier / Zwickelbier
-Kombucha
-Kristallweizen
-Kvass
-Kölsch
-Lager - Amber
-Lager - American Amber / Red
-Lager - American Light
-Lager - Dark
-Lager - Dortmunder / Export
-Lager - Dunkel Munich
-Lager - Euro
-Lager - Euro Dark
-Lager - Euro Strong
-Lager - Helles
-Lager - IPL (India Pale Lager)
-Lager - Japanese Rice
-Lager - North American Adjunct
-Lager - Pale
-Lager - Red
-Lager - Vienna
-Lager - Winter
-Lambic - Faro
-Lambic - Framboise
-Lambic - Fruit
-Lambic - Gueuze
-Lambic - Kriek
-Lambic - Traditional
-Maibock / Heller (Helles) Bock
-Malt Beer
-Malt Liquor 
-Mead - Braggot
-Mead - Cyser
-Mead - Melomel
-Mead - Metheglin
-Mead - Other
-Mead - Pyment
-Mumme
-Märzen
-Non-Alcoholic
-Old Ale
-Other
-Pale Ale - American
-Pale Ale - Australian
-Pale Ale - Belgian
-Pale Ale - English
-Pale Ale - International
-Pale Ale - New Zealand
-Pale Wheat Ale - American
-Patersbier
-Perry
-Pilsner - Czech
-Pilsner - German
-Pilsner - Imperial / Double
-Pilsner - Other
-Porter - American
-Porter - Baltic
-Porter - English
-Porter - Imperial / Double
-Porter - Other
-Pumpkin / Yam Beer
-Pumpkin / Yam Beer - Imperial
-Rauchbier
-Red Ale - American Amber / Red
-Red Ale - Imperial / Double
-Red Ale - Irish
-Red Ale - Other
-Roggenbier
-Root Beer
-Rye Beer
-Sahti
-Saison / Farmhouse Ale
-Schwarzbier
-Scotch Ale / Wee Heavy
-Scottish Ale
-Scottish Export Ale
-Shandy / Radler
-Smoked Beer
-Sour - Ale
-Sour - Berliner Weisse
-Sour - Farmhouse IPA
-Sour - Flanders Oud Bruin
-Sour - Flanders Red Ale
-Sour - Gose
-Specialty Grain
-Spiced / Herbed Beer
-Stout - American
-Stout - American Imperial / Double
-Stout - Foreign / Export
-Stout - Imperial / Double
-Stout - Imperial Milk / Sweet
-Stout - Imperial Oatmeal
-Stout - Irish Dry
-Stout - Milk / Sweet
-Stout - Oatmeal
-Stout - Other
-Stout - Oyster
-Stout - Russian Imperial
-Strong Ale - American
-Strong Ale - English
-Table Beer
-Traditional Ale
-Weizenbock
-Wheat Wine
-Winter Ale
-Winter Warmer
-Witbier
-Zoigl
+{value: 'Altbier', label: '
+{value: 'American Wild Ale', label: '
+{value: 'Applewine', label: '
+{value: 'Australian Sparkling Ale', label: '
+{value: 'Barleywine - American', label: '
+{value: 'Barleywine - English', label: '
+{value: 'Barleywine - Other', label: '
+{value: 'Belgian Blond(e)', label: '
+{value: 'Belgian Dubbel', label: '
+{value: 'Belgian Quad', label: '
+{value: 'Belgian Strong Dark Ale', label: '
+{value: 'Belgian Strong Golden Ale', label: '
+{value: 'Belgian Tripel', label: '
+{value: 'Bière de Champagne / Bière Brut', label: '
+{value: 'Bière de Garde', label: '
+{value: 'Black &amp; Tan', label: '
+{value: 'Blonde Ale', label: '
+{value: 'Blonde Ale - Belgian Blonde / Golden', label: '
+{value: 'Bock', label: '
+{value: 'Brown Ale - American', label: '
+{value: 'Brown Ale - Belgian', label: '
+{value: 'Brown Ale - English', label: '
+{value: 'Brown Ale - Imperial / Double', label: '
+{value: 'Brown Ale - Other', label: '
+{value: 'Burton Ale', label: '
+{value: 'California Common', label: '
+{value: 'Cider', label: '
+{value: 'Cream Ale', label: '
+{value: 'Dampfbier', label: '
+{value: 'Dark Ale', label: '
+{value: 'Doppelbock', label: '
+{value: 'Dunkelweizen', label: '
+{value: 'Eisbock', label: '
+{value: 'English Bitter', label: '
+{value: 'English Mild Ale', label: '
+{value: 'Extra Special / Strong Bitter', label: '
+{value: 'Festbier', label: '
+{value: 'Fruit Beer', label: '
+{value: 'Ginger Beer', label: '
+{value: 'Gluten-Free', label: '
+{value: 'Golden Ale', label: '
+{value: 'Grisette', label: '
+{value: 'Gruit / Ancient Herbed Ale', label: '
+{value: 'Grätzer / Grodziskie', label: '
+{value: 'Happoshu', label: '
+{value: 'Hefeweizen', label: '
+{value: 'Hefeweizen Light / Leicht', label: '
+{value: 'Honey Beer', label: '
+{value: 'IPA - American', label: '
+{value: 'IPA - Belgian', label: '
+{value: 'IPA - Black / Cascadian Dark Ale', label: '
+{value: 'IPA - English', label: '
+{value: 'IPA - Imperial / Double', label: '
+{value: 'IPA - Imperial / Double Black', label: '
+{value: 'IPA - International', label: '
+{value: 'IPA - New England', label: '
+{value: 'IPA - Red', label: '
+{value: 'IPA - Rye', label: '
+{value: 'IPA - Session / India Session Ale', label: '
+{value: 'IPA - Triple', label: '
+{value: 'IPA - White', label: '
+{value: 'Kellerbier / Zwickelbier', label: '
+{value: 'Kombucha', label: '
+{value: 'Kristallweizen', label: '
+{value: 'Kvass', label: '
+{value: 'Kölsch', label: '
+{value: 'Lager - Amber', label: '
+{value: 'Lager - American Amber / Red', label: '
+{value: 'Lager - American Light', label: '
+{value: 'Lager - Dark', label: '
+{value: 'Lager - Dortmunder / Export', label: '
+{value: 'Lager - Dunkel Munich', label: '
+{value: 'Lager - Euro', label: '
+{value: 'Lager - Euro Dark', label: '
+{value: 'Lager - Euro Strong', label: '
+{value: 'Lager - Helles', label: '
+{value: 'Lager - IPL (India Pale Lager)', label: '
+{value: 'Lager - Japanese Rice', label: '
+{value: 'Lager - North American Adjunct', label: '
+{value: 'Lager - Pale', label: '
+{value: 'Lager - Red', label: '
+{value: 'Lager - Vienna', label: '
+{value: 'Lager - Winter', label: '
+{value: 'Lambic - Faro', label: '
+{value: 'Lambic - Framboise', label: '
+{value: 'Lambic - Fruit', label: '
+{value: 'Lambic - Gueuze', label: '
+{value: 'Lambic - Kriek', label: '
+{value: 'Lambic - Traditional', label: '
+{value: 'Maibock / Heller (Helles) Bock', label: '
+{value: 'Malt Beer', label: '
+{value: 'Malt Liquor ', label: '
+{value: 'Mead - Braggot', label: '
+{value: 'Mead - Cyser', label: '
+{value: 'Mead - Melomel', label: '
+{value: 'Mead - Metheglin', label: '
+{value: 'Mead - Other', label: '
+{value: 'Mead - Pyment', label: '
+{value: 'Mumme', label: '
+{value: 'Märzen', label: '
+{value: 'Non-Alcoholic', label: '
+{value: 'Old Ale', label: '
+{value: 'Other', label: '
+{value: 'Pale Ale - American', label: '
+{value: 'Pale Ale - Australian', label: '
+{value: 'Pale Ale - Belgian', label: '
+{value: 'Pale Ale - English', label: '
+{value: 'Pale Ale - International', label: '
+{value: 'Pale Ale - New Zealand', label: '
+{value: 'Pale Wheat Ale - American', label: '
+{value: 'Patersbier', label: '
+{value: 'Perry', label: '
+{value: 'Pilsner - Czech', label: '
+{value: 'Pilsner - German', label: '
+{value: 'Pilsner - Imperial / Double', label: '
+{value: 'Pilsner - Other', label: '
+{value: 'Porter - American', label: '
+{value: 'Porter - Baltic', label: '
+{value: 'Porter - English', label: '
+{value: 'Porter - Imperial / Double', label: '
+{value: 'Porter - Other', label: '
+{value: 'Pumpkin / Yam Beer', label: '
+{value: 'Pumpkin / Yam Beer - Imperial', label: '
+{value: 'Rauchbier', label: '
+{value: 'Red Ale - American Amber / Red', label: '
+{value: 'Red Ale - Imperial / Double', label: '
+{value: 'Red Ale - Irish', label: '
+{value: 'Red Ale - Other', label: '
+{value: 'Roggenbier', label: '
+{value: 'Root Beer', label: '
+{value: 'Rye Beer', label: '
+{value: 'Sahti', label: '
+{value: 'Saison / Farmhouse Ale', label: '
+{value: 'Schwarzbier', label: '
+{value: 'Scotch Ale / Wee Heavy', label: '
+{value: 'Scottish Ale', label: '
+{value: 'Scottish Export Ale', label: '
+{value: 'Shandy / Radler', label: '
+{value: 'Smoked Beer', label: '
+{value: 'Sour - Ale', label: '
+{value: 'Sour - Berliner Weisse', label: '
+{value: 'Sour - Farmhouse IPA', label: '
+{value: 'Sour - Flanders Oud Bruin', label: '
+{value: 'Sour - Flanders Red Ale', label: '
+{value: 'Sour - Gose', label: '
+{value: 'Specialty Grain', label: '
+{value: 'Spiced / Herbed Beer', label: '
+{value: 'Stout - American', label: '
+{value: 'Stout - American Imperial / Double', label: '
+{value: 'Stout - Foreign / Export', label: '
+{value: 'Stout - Imperial / Double', label: '
+{value: 'Stout - Imperial Milk / Sweet', label: '
+{value: 'Stout - Imperial Oatmeal', label: '
+{value: 'Stout - Irish Dry', label: '
+{value: 'Stout - Milk / Sweet', label: '
+{value: 'Stout - Oatmeal', label: '
+{value: 'Stout - Other', label: '
+{value: 'Stout - Oyster', label: '
+{value: 'Stout - Russian Imperial', label: '
+{value: 'Strong Ale - American', label: '
+{value: 'Strong Ale - English', label: '
+{value: 'Table Beer', label: '
+{value: 'Traditional Ale', label: '
+{value: 'Weizenbock', label: '
+{value: 'Wheat Wine', label: '
+{value: 'Winter Ale', label: '
+{value: 'Winter Warmer', label: '
+{value: 'Witbier', label: '
+{value: 'Zoigl', label: '

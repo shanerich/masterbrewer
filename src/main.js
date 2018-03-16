@@ -1,9 +1,9 @@
-import 'firebase'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import LightBootstrap from './light-bootstrap-main'
 // Plugins
 import App from './App.vue'
+import './util/firebase'
 import VueFire from 'vuefire'
 
 // router setup

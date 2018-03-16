@@ -12,13 +12,12 @@
                     <div class="col-8">
                         <fg-input label="Brewery Name"
                                 type="text"
-                                placeholder="Brewery Name">
+                                v-model="brewery_name">
                         </fg-input>
                         <label>Brewery Type</label><br>
                         <el-select class="brewery-type" 
                                    size="large"
-                                   placeholder="Brewery Type"
-                                   v-model="selects.type">
+                                   v-model="brewery_type">
                             <el-option v-for="option in selects.types"
                                         class="select-warning"
                                         :value="option.value"
@@ -29,8 +28,7 @@
                         <label>Brewery Country</label><br>
                         <el-select class="brewery-country" 
                                    size="large"
-                                   placeholder="Brewery Country"
-                                   v-model="selects.country">
+                                   v-model="country_name">
                             <el-option v-for="option in selects.countries"
                                         class="select-warning"
                                         :value="option.value"
@@ -38,46 +36,35 @@
                                         :key="option.value">
                             </el-option>
                         </el-select>
-                        <span v-if="selects.country === 'us'">
-                            <fg-input label="Address"
-                                    type="text"
-                                    placeholder="Street Address">
-                            </fg-input>
+                        <span v-if="country_name === 'United States'">
                             <span class="row">
                                 <fg-input label="City"
                                         class="col-sm-4"
                                         type="text"
-                                        placeholder="City Name">
+                                        v-model="brewery_city">
                                 </fg-input>
                                 <span class="col-sm-4">
                                 <label>State</label>
                                 <el-select size="large"
-                                        placeholder="State Name"
-                                        readonly="!readonly"
-                                        v-model="selects.state">
+                                        v-model="brewery_state">
                                     <el-option v-for="option in selects.states"
                                                 class="select-warning"
                                                 :value="option.value"
                                                 :label="option.label"
-                                                :key="option.value">
+                                                :key="option.label">
                                     </el-option>
                                 </el-select>
                                 </span>
-                                <fg-input label="Zip"
-                                        class="col-sm-4"
-                                        type="text"
-                                        placeholder="Zip Code">
-                                </fg-input>
                             </span>
                         </span>
                         <fg-input label="Brewery Description">
-                            <textarea class="form-control" placeholder="Brewery Description" rows="3"></textarea>
+                            <textarea v-model="brewery_description" class="form-control" rows="3"></textarea>
                         </fg-input>
                     </div>
                     
                     <div class="col-2">
                         <label>Verified</label><br>
-                        <l-switch v-model="switches.withIconsOff">
+                        <l-switch v-model="brewery_verified">
                             <i class="fa fa-times" slot="off"></i>
                         </l-switch>
                     </div>
@@ -85,7 +72,7 @@
                 </form>
                 <div class="row">
                     <div class="col-md-12">
-                    <button type="submit" class="btn btn-fill btn-warning">
+                    <button @click="createBrewery()" type="submit" class="btn btn-fill btn-warning">
                         CREATE
                     </button>
                     </div>
@@ -101,6 +88,9 @@ import {
     Switch as LSwitch,
     FormGroupInput as FgInput
 } from 'src/components/index'
+import { breweries } from 'src/util/firebase'
+import swal from 'sweetalert2'
+import 'sweetalert2/dist/sweetalert2.css'
 
 export default {
     components: {
@@ -113,81 +103,120 @@ export default {
     },
     data () {
         return {
+            brewery_name: '',
+            brewery_type: '',
+            country_name: '',
+            brewery_city: '',
+            brewery_state: '',
+            brewery_description: '',
+            brewery_verified: false,
             switches: {
                 withIconsOn: true,
                 withIconsOff: false
             },
             selects: {
-                type: '',
-                country: '',
-                state: '',
                 types: [
-                {value: 'macro', label: 'Macro Brewery (Greater than 6M Barrels / Year)'},
-                {value: 'micro', label: 'Micro Brewery (Less than 6M Barrels / Year)'},
-                {value: 'nano', label: 'Nano Brewery (Less than 200 Gallons / Year, Sells Commercially)'},
-                {value: 'brewpub', label: 'Brew Pub (Brews / Sells on Premise, at least 25%)'},
-                {value: 'collab', label: 'Collaboration Brewery (Two breweries brewing where there is no host brewery)'},
-                {value: 'cidery', label: 'Cidery / Meadery (Produces Ciders or Meads)'}
+                {value: 'Macro Brewery', label: 'Macro Brewery (Greater than 6M Barrels / Year)'},
+                {value: 'Micro Brewery', label: 'Micro Brewery (Less than 6M Barrels / Year)'},
+                {value: 'Nano Brewery', label: 'Nano Brewery (Less than 200 Gallons / Year, Sells Commercially)'},
+                {value: 'Brew Pub', label: 'Brew Pub (Brews / Sells on Premise, at least 25%)'},
+                {value: 'Collaboration Brewery', label: 'Collaboration Brewery (Two breweries brewing where there is no host brewery)'},
+                {value: 'Cidery / Meadery', label: 'Cidery / Meadery (Produces Ciders or Meads)'}
                 ],
                 countries: [
-                {value: 'us', label: 'Unites States'},
-                {value: 'china', label: 'China'},
-                {value: 'japan', label: 'Japan'}
+                {value: 'United States', label: 'United States'},
+                {value: 'China', label: 'China'},
+                {value: 'Japan', label: 'Japan'}
                 ],
                 states: [
-                {value: 'AL', label: 'Alabama'},
-                {value: 'AK', label: 'Alaska'},
-                {value: 'AZ', label: 'Arizona'},
-                {value: 'AR', label: 'Arkansas'},
-                {value: 'CA', label: 'California'},
-                {value: 'CO', label: 'Colorado'},
-                {value: 'CT', label: 'Connecticut'},
-                {value: 'DC', label: 'District of Columbia'},
-                {value: 'DE', label: 'Delaware'},
-                {value: 'FL', label: 'Florida'},
-                {value: 'GA', label: 'Georgia'},
-                {value: 'HI', label: 'Hawaii'},
-                {value: 'ID', label: 'Idaho'},
-                {value: 'IL', label: 'Illinois'},
-                {value: 'IN', label: 'Indiana'},
-                {value: 'IA', label: 'Iowa'},
-                {value: 'KS', label: 'Kansas'},
-                {value: 'KY', label: 'Kentucky'},
-                {value: 'LA', label: 'Louisiana'},
-                {value: 'ME', label: 'Maine'},
-                {value: 'MD', label: 'Maryland'},
-                {value: 'MA', label: 'Massachusetts'},
-                {value: 'MI', label: 'Michigan'},
-                {value: 'MN', label: 'Minnesota'},
-                {value: 'MS', label: 'Mississippi'},
-                {value: 'MO', label: 'Missouri'},
-                {value: 'MT', label: 'Montana'},
-                {value: 'NE', label: 'Nebraska'},
-                {value: 'NV', label: 'Nevada'},
-                {value: 'NH', label: 'New Hampshire'},
-                {value: 'NJ', label: 'New Jersey'},
-                {value: 'NM', label: 'New Mexico'},
-                {value: 'NY', label: 'New York'},
-                {value: 'NC', label: 'North Carolina'},
-                {value: 'ND', label: 'North Dakota'},
-                {value: 'OH', label: 'Ohio'},
-                {value: 'OK', label: 'Oklahoma'},
-                {value: 'OR', label: 'Oregon'},
-                {value: 'PA', label: 'Pennsylvania'},
-                {value: 'RI', label: 'Rhode Island'},
-                {value: 'SC', label: 'South Carolina'},
-                {value: 'SD', label: 'South Dakota'},
-                {value: 'TN', label: 'Tennessee'},
-                {value: 'TX', label: 'Texas'},
-                {value: 'UT', label: 'Utah'},
-                {value: 'VT', label: 'Vermont'},
-                {value: 'VA', label: 'Virginia'},
-                {value: 'WA', label: 'Washington'},
-                {value: 'WV', label: 'West Virginia'},
-                {value: 'WI', label: 'Wisconsin'},
-                {value: 'WY', label: 'Wyoming'}
+                {value: 'Alabama', label: 'Alabama'},
+                {value: 'Alaska', label: 'Alaska'},
+                {value: 'Arizona', label: 'Arizona'},
+                {value: 'Arkansas', label: 'Arkansas'},
+                {value: 'California', label: 'California'},
+                {value: 'Colorado', label: 'Colorado'},
+                {value: 'Connecticut', label: 'Connecticut'},
+                {value: 'District of Columbia', label: 'District of Columbia'},
+                {value: 'Delaware', label: 'Delaware'},
+                {value: 'Florida', label: 'Florida'},
+                {value: 'Georgia', label: 'Georgia'},
+                {value: 'Hawaii', label: 'Hawaii'},
+                {value: 'Idaho', label: 'Idaho'},
+                {value: 'Illinois', label: 'Illinois'},
+                {value: 'Indiana', label: 'Indiana'},
+                {value: 'Iowa', label: 'Iowa'},
+                {value: 'Kansas', label: 'Kansas'},
+                {value: 'Kentucky', label: 'Kentucky'},
+                {value: 'Louisiana', label: 'Louisiana'},
+                {value: 'Maine', label: 'Maine'},
+                {value: 'Maryland', label: 'Maryland'},
+                {value: 'Massachusetts', label: 'Massachusetts'},
+                {value: 'Michigan', label: 'Michigan'},
+                {value: 'Minnesota', label: 'Minnesota'},
+                {value: 'Mississippi', label: 'Mississippi'},
+                {value: 'Missouri', label: 'Missouri'},
+                {value: 'Montana', label: 'Montana'},
+                {value: 'Nebraska', label: 'Nebraska'},
+                {value: 'Nevada', label: 'Nevada'},
+                {value: 'New Hampshire', label: 'New Hampshire'},
+                {value: 'New Jersey', label: 'New Jersey'},
+                {value: 'New Mexico', label: 'New Mexico'},
+                {value: 'New York', label: 'New York'},
+                {value: 'North Carolina', label: 'North Carolina'},
+                {value: 'North Dakota', label: 'North Dakota'},
+                {value: 'Ohio', label: 'Ohio'},
+                {value: 'Oklahoma', label: 'Oklahoma'},
+                {value: 'Oregon', label: 'Oregon'},
+                {value: 'Pennsylvania', label: 'Pennsylvania'},
+                {value: 'Rhode Island', label: 'Rhode Island'},
+                {value: 'South Carolina', label: 'South Carolina'},
+                {value: 'South Dakota', label: 'South Dakota'},
+                {value: 'Tennessee', label: 'Tennessee'},
+                {value: 'Texas', label: 'Texas'},
+                {value: 'Utah', label: 'Utah'},
+                {value: 'Vermont', label: 'Vermont'},
+                {value: 'Virginia', label: 'Virginia'},
+                {value: 'Washington', label: 'Washington'},
+                {value: 'West Virginia', label: 'West Virginia'},
+                {value: 'Wisconsin', label: 'Wisconsin'},
+                {value: 'Wyoming', label: 'Wyoming'}
                 ]
             }
+        }
+    },
+    methods: {
+        createBrewery() {
+            var _this = this;
+            breweries.push({
+                brewery_name: _this.brewery_name,
+                brewery_type: _this.brewery_type,
+                country_name: _this.country_name,
+                brewery_city: _this.brewery_city,
+                brewery_state: _this.brewery_state,
+                brewery_description: _this.brewery_description,
+                brewery_verified: _this.brewery_verified
+            }, function(error) {
+                if (error) {
+                    console.log('An error has occurred')
+                } else {
+                    _this.showSwal()
+                    _this.brewery_name = ''
+                    _this.brewery_type = ''
+                    _this.country_name = ''
+                    _this.brewery_city = ''
+                    _this.brewery_state = ''
+                    _this.brewery_description = ''
+                    _this.brewery_verified = false;
+                }
+            })
+        },
+        showSwal() {
+            swal({
+                title: `Brewery Created!`,
+                buttonsStyling: false,
+                confirmButtonClass: 'btn btn-warning btn-fill',
+                type: 'success'
+            })
         }
     }
 }
@@ -197,5 +226,8 @@ export default {
 .brewery-type, .brewery-country {
     margin-bottom: 1rem;
     width: 100%;
+}
+textarea {
+    height: 78px;
 }
 </style>
