@@ -15,8 +15,8 @@ import Lock from 'src/pages/Dashboard/Pages/Lock.vue'
 // Admin pages
 import CreateBrewery from 'src/pages/Dashboard/Admin/CreateBrewery.vue'
 import CreateBeer from 'src/pages/Dashboard/Admin/CreateBeer.vue'
-import EditBrewery from 'src/pages/Dashboard/Admin/EditBrewery.vue'
-import EditBeer from 'src/pages/Dashboard/Admin/EditBeer.vue'
+import EditBreweries from 'src/pages/Dashboard/Admin/EditBreweries.vue'
+import EditBeers from 'src/pages/Dashboard/Admin/EditBeers.vue'
 
 // Components pages
 import Buttons from 'src/pages/Dashboard/Components/Buttons.vue'
@@ -63,14 +63,14 @@ let adminMenu = {
       component: CreateBeer
     },
     {
-      path: 'editbrewery',
-      name: 'Edit Brewery',
-      component: EditBrewery
+      path: 'editbreweries',
+      name: 'Edit Breweries',
+      component: EditBreweries
     },
     {
-      path: 'editbeer',
-      name: 'Edit Beer',
-      component: EditBeer
+      path: 'editbeers',
+      name: 'Edit Beers',
+      component: EditBeers
     },
   ]
 }

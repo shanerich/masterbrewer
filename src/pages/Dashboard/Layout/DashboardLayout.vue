@@ -10,8 +10,8 @@
         <sidebar-item :link="{name: 'Admin', icon: 'nc-icon nc-settings-gear-64'}">
           <sidebar-item :link="{name: 'Create Brewery', path: '/admin/createbrewery'}"></sidebar-item>
           <sidebar-item :link="{name: 'Create Beer', path: '/admin/createbeer'}"></sidebar-item>
-          <sidebar-item :link="{name: 'Edit Brewery', path: '/admin/editbrewery'}"></sidebar-item>
-          <sidebar-item :link="{name: 'Edit Beer', path: '/admin/editbeer'}"></sidebar-item>
+          <sidebar-item :link="{name: 'Edit Breweries', path: '/admin/editbreweries'}"></sidebar-item>
+          <sidebar-item :link="{name: 'Edit Beers', path: '/admin/editbeers'}"></sidebar-item>
         </sidebar-item>
         <sidebar-item :link="{name: 'Components', icon: 'nc-icon nc-app'}">
           <sidebar-item :link="{name: 'Buttons', path: '/components/buttons'}"></sidebar-item>
