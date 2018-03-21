@@ -10,43 +10,58 @@
                 <form action="#" method="#" @submit.prevent>
                     <div class="row">
                     <div class="col-8">
+                        <label>Brewery</label><br>
+                        <el-select class="beer-brewery" 
+                                   size="large"
+                                   placeholder="Brewery Name"
+                                   v-model="beer_brewery">
+                            <el-option v-for="brewery in _breweries"
+                                        class="select-warning"
+                                        :value="brewery"
+                                        :label="brewery.brewery_name"
+                                        :key="brewery['.key']">
+                            </el-option>
+                        </el-select>
                         <fg-input label="Beer Name"
                                 type="text"
-                                placeholder="Beer Name">
+                                placeholder="Beer Name"
+                                v-model="beer_name">
                         </fg-input>
                         <label>Beer Style</label><br>
                         <el-select class="beer-style" 
                                    size="large"
                                    placeholder="Beer Style"
-                                   v-model="selects.type">
-                            <el-option v-for="option in selects.styles"
+                                   v-model="beer_style">
+                            <el-option v-for="style in selects.styles"
                                         class="select-warning"
-                                        :value="option.value"
-                                        :label="option.label"
-                                        :key="option.value">
+                                        :value="style.value"
+                                        :label="style.label"
+                                        :key="style.value">
                             </el-option>
                         </el-select>
                         <span class="row">
                             <fg-input label="ABV"
                                     class="col-sm-6"
                                     type="text"
-                                    placeholder="Beer ABV">
+                                    placeholder="Beer ABV"
+                                    v-model="beer_abv">
                             </fg-input>
                             <fg-input label="IBU"
                                     class="col-sm-6"
                                     type="text"
-                                    placeholder="Beer IBU">
+                                    placeholder="Beer IBU"
+                                    v-model="beer_ibu">
                             </fg-input>
                         </span>
                         <fg-input label="Beer Description">
-                            <textarea class="form-control" placeholder="Beer Description" rows="3"></textarea>
+                            <textarea v-model="beer_description" class="form-control" placeholder="Beer Description" rows="3"></textarea>
                         </fg-input>
                     </div>
                     </div>
                 </form>
                 <div class="row">
                     <div class="col-md-12">
-                    <button type="submit" class="btn btn-fill btn-warning">
+                    <button @click="createBeer()" type="submit" class="btn btn-fill btn-warning">
                         CREATE
                     </button>
                     </div>
@@ -62,6 +77,10 @@ import {
     Switch as LSwitch,
     FormGroupInput as FgInput
 } from 'src/components/index'
+import { beers } from 'src/util/firebase'
+import { breweries } from 'src/util/firebase'
+import swal from 'sweetalert2'
+import 'sweetalert2/dist/sweetalert2.css'
 
 export default {
     components: {
@@ -72,16 +91,18 @@ export default {
         [Option.name]: Option,
         LSwitch
     },
+    firebase: {
+        _breweries: breweries
+    },
     data () {
         return {
-            switches: {
-                withIconsOn: true,
-                withIconsOff: false
-            },
+            beer_brewery: '',
+            beer_name: '',
+            beer_style: '',
+            beer_abv: '',
+            beer_ibu: '',
+            beer_description: '',
             selects: {
-                type: '',
-                country: '',
-                state: '',
                 styles: [
                 {value: 'Altbier', label: 'Altbier'},
                 {value: 'American Wild Ale', label: 'American Wild Ale'},
@@ -313,13 +334,50 @@ export default {
                 ]
             }
         }
+    },
+    methods: {
+        createBeer() {
+            var _this = this;
+            beers.push({
+                beer_brewery_id: _this.beer_brewery['.key'],
+                beer_brewery_name: _this.beer_brewery.brewery_name,
+                beer_name: _this.beer_name,
+                beer_style: _this.beer_style,
+                beer_abv: _this.beer_abv,
+                beer_ibu: _this.beer_ibu,
+                beer_description: _this.beer_description,
+            }, function(error) {
+                if (error) {
+                    console.log('An error has occurred')
+                } else {
+                    _this.showSwal()
+                    _this.beer_brewery = ''
+                    _this.beer_name = ''
+                    _this.beer_style = ''
+                    _this.beer_abv = ''
+                    _this.beer_ibu = ''
+                    _this.beer_description = ''
+                }
+            })
+        },
+        showSwal() {
+            swal({
+                title: `Beer Created!`,
+                buttonsStyling: false,
+                confirmButtonClass: 'btn btn-warning btn-fill',
+                type: 'success'
+            })
+        }
     }
 }
 </script>
 
 <style scoped>
-.beer-style, .brewery-country {
+.beer-style, .beer-brewery {
     margin-bottom: 1rem;
     width: 100%;
+}
+textarea {
+    height: 78px;
 }
 </style>

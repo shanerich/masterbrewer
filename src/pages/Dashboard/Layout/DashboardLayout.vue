@@ -13,6 +13,16 @@
           <sidebar-item :link="{name: 'Edit Breweries', path: '/admin/editbreweries'}"></sidebar-item>
           <sidebar-item :link="{name: 'Edit Beers', path: '/admin/editbeers'}"></sidebar-item>
         </sidebar-item>
+        <sidebar-item :link="{name: 'Marketplace', icon: 'nc-icon nc-cart-simple'}">
+          <sidebar-item :link="{name: 'Collect Breweries', path: '/marketplace/breweries'}"></sidebar-item>
+          <sidebar-item :link="{name: 'Collect Beers', path: '/marketplace/beers'}"></sidebar-item>
+        </sidebar-item>
+        <sidebar-item :link="{name: 'My Collection', icon: 'nc-icon nc-layers-3', path: '/user/mycollection'}"></sidebar-item>
+        <sidebar-item :link="{name: 'Help', icon: 'nc-icon nc-bulb-63'}">
+          <sidebar-item :link="{name: 'About', path: '/help/about'}"></sidebar-item>
+          <sidebar-item :link="{name: 'FAQ', path: '/help/faq'}"></sidebar-item>
+          <sidebar-item :link="{name: 'Support', path: '/help/support'}"></sidebar-item>
+        </sidebar-item>
         <sidebar-item :link="{name: 'Components', icon: 'nc-icon nc-app'}">
           <sidebar-item :link="{name: 'Buttons', path: '/components/buttons'}"></sidebar-item>
           <sidebar-item :link="{name: 'Grid System', path: '/components/grid-system'}"></sidebar-item>

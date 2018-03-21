@@ -63,6 +63,20 @@
                     </div>
                     
                     <div class="col-2">
+                        <label>Brewery Logo</label><br>
+                        <el-upload
+                            class="upload-demo"
+                            action=""
+                            :http-request="handleAction"
+                            :on-preview="handlePreview"
+                            :on-remove="handleRemove"
+                            :on-success="handleSuccess"
+                            :file-list="fileList2"
+                            list-type="picture">
+                            <el-button size="small" type="success">Click to upload</el-button>
+                            <!-- <div slot="tip" class="el-upload__tip">jpg/png files with a size less than 500kb</div> -->
+                        </el-upload>
+                        <br>
                         <label>Verified</label><br>
                         <l-switch v-model="brewery_verified">
                             <i class="fa fa-times" slot="off"></i>
@@ -83,7 +97,7 @@
 </template>
 
 <script>
-import { Input, Button, Select, Option } from 'element-ui'
+import { Input, Button, Select, Option, Upload } from 'element-ui'
 import { 
     Switch as LSwitch,
     FormGroupInput as FgInput
@@ -99,7 +113,9 @@ export default {
         [Button.name]: Button,
         [Select.name]: Select,
         [Option.name]: Option,
+        [Upload.name]: Upload,
         LSwitch
+        
     },
     data () {
         return {
@@ -181,7 +197,8 @@ export default {
                 {value: 'Wisconsin', label: 'Wisconsin'},
                 {value: 'Wyoming', label: 'Wyoming'}
                 ]
-            }
+            },
+            fileList2: [{name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}, {name: 'food2.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}]
         }
     },
     methods: {
@@ -217,6 +234,20 @@ export default {
                 confirmButtonClass: 'btn btn-warning btn-fill',
                 type: 'success'
             })
+        }, // file upload methods
+        handleRemove(file, fileList) {
+            console.log(file, fileList)
+        },
+        handlePreview(file) {
+            console.log(file)
+        },
+        handleSuccess(response, file, fileList) {
+            console.log(response)
+            console.log(file)
+            console.log(fileList)
+        },
+        handleAction(file) {
+            console.log(file)
         }
     }
 }

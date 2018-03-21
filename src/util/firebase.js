@@ -10,5 +10,5 @@ const fb = initializeApp ({
   })
 
 export const db = fb.database()
-export const breweries = db.ref('/breweries')
-export const beer = db.ref('beer')
+export const breweries = db.ref('breweries')
+export const beers = db.ref('beers')

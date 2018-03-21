@@ -315,13 +315,6 @@
         }).then((result) => {
           if (result.value) {
             breweries.child(key).remove() //remove brewery from firebase
-            /*swal({
-              title: 'Deleted!',
-              text: 'Brewery has been deleted.',
-              type: 'success',
-              confirmButtonClass: 'btn btn-success btn-fill',
-              buttonsStyling: false
-            })*/
             this.notifyDelete('top', 'right')
           }
         })

@@ -18,6 +18,18 @@ import CreateBeer from 'src/pages/Dashboard/Admin/CreateBeer.vue'
 import EditBreweries from 'src/pages/Dashboard/Admin/EditBreweries.vue'
 import EditBeers from 'src/pages/Dashboard/Admin/EditBeers.vue'
 
+// Marketplace pages
+import CollectBreweries from 'src/pages/Dashboard/Marketplace/CollectBreweries.vue'
+import CollectBeers from 'src/pages/Dashboard/Marketplace/CollectBeers.vue'
+
+// MyCollection page
+import MyCollection from 'src/pages/Dashboard/Collection/MyCollection.vue'
+
+// Help pages
+import About from 'src/pages/Dashboard/Help/About.vue'
+import FAQ from 'src/pages/Dashboard/Help/Faq.vue'
+import Support from 'src/pages/Dashboard/Help/Support.vue'
+
 // Components pages
 import Buttons from 'src/pages/Dashboard/Components/Buttons.vue'
 import GridSystem from 'src/pages/Dashboard/Components/GridSystem.vue'
@@ -74,6 +86,46 @@ let adminMenu = {
     },
   ]
 }
+let marketplaceMenu = {
+  path: '/marketplace',
+  component: DashboardLayout,
+  redirect: '/marketplace/breweries',
+  children: [
+    {
+      path: 'breweries',
+      name: 'Collect Breweries',
+      component: CollectBreweries
+    },
+    {
+      path: 'beers',
+      name: 'Collect Beers',
+      component: CollectBeers
+    }
+  ]
+}
+let helpMenu = {
+  path: '/help',
+  component: DashboardLayout,
+  redirect: '/help/about',
+  children: [
+    {
+      path: 'about',
+      name: 'About',
+      component: About
+    },
+    {
+      path: 'faq',
+      name: 'FAQ',
+      component: FAQ
+    },
+    {
+      path: 'support',
+      name: 'Support',
+      component: Support
+    }
+  ]
+}
+
 let componentsMenu = {
   path: '/components',
   component: DashboardLayout,
@@ -232,6 +284,8 @@ const routes = [
     redirect: '/admin/overview'
   },
   adminMenu,
+  marketplaceMenu,
+  helpMenu,
   componentsMenu,
   formsMenu,
   tablesMenu,
@@ -240,6 +294,23 @@ const routes = [
   loginPage,
   registerPage,
   lockPage,
+  {
+    path: '/user',
+    component: DashboardLayout,
+    redirect: '/user/mycollection',
+    children: [
+      {
+        path: 'mycollection',
+        name: 'My Collection',
+        component: MyCollection
+      }/*,
+      {
+        path: 'activity',
+        name: 'Activity',
+        component: Activity
+      }*/
+    ]
+  },
   {
     path: '/admin',
     component: DashboardLayout,
@@ -267,6 +338,7 @@ const routes = [
       }
     ]
   },
+  
   {path: '*', component: NotFound}
 ]
 
