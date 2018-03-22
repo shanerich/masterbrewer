@@ -71,7 +71,6 @@
                             :on-preview="handlePreview"
                             :on-remove="handleRemove"
                             :on-success="handleSuccess"
-                            :file-list="fileList2"
                             list-type="picture">
                             <el-button size="small" type="success">Click to upload</el-button>
                             <!-- <div slot="tip" class="el-upload__tip">jpg/png files with a size less than 500kb</div> -->
@@ -81,6 +80,7 @@
                         <l-switch v-model="brewery_verified">
                             <i class="fa fa-times" slot="off"></i>
                         </l-switch>
+                        {{gskey}}
                     </div>
                     </div>
                 </form>
@@ -102,6 +102,7 @@ import {
     Switch as LSwitch,
     FormGroupInput as FgInput
 } from 'src/components/index'
+import { gs } from 'src/util/firebase'
 import { breweries } from 'src/util/firebase'
 import swal from 'sweetalert2'
 import 'sweetalert2/dist/sweetalert2.css'
@@ -120,12 +121,15 @@ export default {
     data () {
         return {
             brewery_name: '',
+            brewery_imgUrl: '',
             brewery_type: '',
             country_name: '',
             brewery_city: '',
             brewery_state: '',
             brewery_description: '',
             brewery_verified: false,
+            brewery_file: null,
+            gskey: '',
             switches: {
                 withIconsOn: true,
                 withIconsOff: false
@@ -204,27 +208,43 @@ export default {
     methods: {
         createBrewery() {
             var _this = this;
+            let imageUrl
+            let key
             breweries.push({
                 brewery_name: _this.brewery_name,
+                brewery_imgUrl: _this.brewery_imgUrl,
                 brewery_type: _this.brewery_type,
                 country_name: _this.country_name,
                 brewery_city: _this.brewery_city,
                 brewery_state: _this.brewery_state,
                 brewery_description: _this.brewery_description,
                 brewery_verified: _this.brewery_verified
-            }, function(error) {
-                if (error) {
-                    console.log('An error has occurred')
-                } else {
-                    _this.showSwal()
-                    _this.brewery_name = ''
-                    _this.brewery_type = ''
-                    _this.country_name = ''
-                    _this.brewery_city = ''
-                    _this.brewery_state = ''
-                    _this.brewery_description = ''
-                    _this.brewery_verified = false;
-                }
+            })
+            .then((data) => {
+                key = data.key
+                return key
+            })
+            .then(key => {
+                const filename = this.brewery_file.name
+                const ext = filename.slice(filename.lastIndexOf('.'))
+                return gs.ref('breweries/' + key + ext).put(this.brewery_file) 
+            })
+            .then(fileData => {
+                imageUrl = fileData.metadata.downloadURLs[0]
+                return breweries.child(key).update({brewery_imgUrl: imageUrl})
+            })
+            .then(() => {
+                _this.showSwal()
+                _this.brewery_name = ''
+                _this.brewery_type = ''
+                _this.country_name = ''
+                _this.brewery_city = ''
+                _this.brewery_state = ''
+                _this.brewery_description = ''
+                _this.brewery_verified = false;
+            })
+            .catch((error) => {
+                console.log(error)
             })
         },
         showSwal() {
@@ -247,7 +267,8 @@ export default {
             console.log(fileList)
         },
         handleAction(file) {
-            console.log(file)
+            //console.log(file.file)
+            this.brewery_file = file.file
         }
     }
 }

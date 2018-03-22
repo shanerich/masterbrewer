@@ -67,7 +67,10 @@ let adminMenu = {
     {
       path: 'createbrewery',
       name: 'Create Brewery',
-      component: CreateBrewery
+      component: CreateBrewery,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: 'createbeer',

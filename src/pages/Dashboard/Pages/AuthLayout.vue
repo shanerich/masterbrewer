@@ -4,7 +4,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute">
         <div class="container">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Vue LBD Pro</a>
+            <a class="navbar-brand" href="/">MasterBrewer</a>
             <button class="navbar-toggler"
                     type="button"
                     @click="showMenu = !showMenu"
@@ -22,22 +22,12 @@
               <ul class="navbar-nav">
                 <router-link to="/admin" tag="li" class="nav-item">
                   <a class="nav-link">
-                    <i class="nc-icon nc-chart-pie-35"></i> Dashboard
-                  </a>
-                </router-link>
-                <router-link to="/register" tag="li" class="nav-item">
-                  <a class="nav-link">
-                    <i class="nc-icon nc-badge"></i> Register
+                    <i class="nc-icon nc-chart-pie-35"></i> Back to Dashboard
                   </a>
                 </router-link>
                 <router-link to="/login" tag="li" class="nav-item">
                   <a class="nav-link">
                     <i class="nc-icon nc-mobile"></i> Login
-                  </a>
-                </router-link>
-                <router-link to="/lock" tag="li" class="nav-item">
-                  <a class="nav-link">
-                    <i class="nc-icon nc-key-25"></i> Lock
                   </a>
                 </router-link>
               </ul>
@@ -56,27 +46,8 @@
         <footer class="footer footer-transparent">
           <div
             class="container d-flex flex-lg-row flex-column justify-content-lg-between justify-content-center align-items-center">
-            <nav>
-              <ul>
-                <li>
-                  <router-link to="/">Home</router-link>
-                </li>
-                <li>
-                  <router-link to="/">Company</router-link>
-                </li>
-                <li>
-                  <router-link to="/">Portfolio</router-link>
-                </li>
-                <li>
-                  <router-link to="/">Blog</router-link>
-                </li>
-              </ul>
-            </nav>
             <div class="copyright">
-              &copy; Coded with
-              <i class="fa fa-heart heart"></i> by
-              <a href="https://github.com/cristijora" target="_blank">Cristi Jora</a>.
-              Designed by <a href="https://www.creative-tim.com/?ref=pdf-vuejs" target="_blank" rel="noopener">Creative Tim</a>.
+              &copy; 2018 MasterBrewer. All Rights Reserved.
             </div>
           </div>
         </footer>

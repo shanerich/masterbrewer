@@ -2,12 +2,11 @@
   <auth-layout pageClass="login-page">
     <div class="row d-flex justify-content-center align-items-center">
       <div class="col-lg-4 col-md-6 col-sm-8">
-        <form method="#" action="#">
           <!--You can specify transitions on initial render. The `card-hidden` class will be present initially and then it will be removed-->
           <fade-render-transition>
             <card>
               <div slot="header">
-                <h3 class="card-title text-center">Login</h3>
+                <h3 class="card-title text-center">Login: {{ userEmail }}</h3>
               </div>
               <div>
                 <fg-input label="Email address"
@@ -21,14 +20,11 @@
                           placeholder="Password"
                           v-model="model.password">
                 </fg-input>
-                <fg-input>
-                  <l-checkbox v-model="model.subscribe">
-                    Subscribe to newsletter
-                  </l-checkbox>
-                </fg-input>
               </div>
               <div class="text-center">
-                <button type="submit" class="btn btn-fill btn-info btn-round btn-wd ">Login</button>
+                <button @click="signIn" class="btn btn-fill btn-warning btn-wd">Login</button>
+                <button @click="signOut" class="btn btn-fill btn-warning btn-wd">Logout</button>
+                <button @click="currUser" class="btn btn-fill btn-warning btn-wd">User</button>
                 <br>
                 <div class="forgot">
                   <router-link to="/register" class="card-category">
@@ -38,8 +34,6 @@
               </div>
             </card>
           </fade-render-transition>
-
-        </form>
       </div>
     </div>
   </auth-layout>
@@ -47,6 +41,7 @@
 <script>
   import { Checkbox as LCheckbox, FadeRenderTransition } from 'src/components/index'
   import AuthLayout from './AuthLayout.vue'
+  import { auth } from 'src/util/firebase'
   export default {
     components: {
       LCheckbox,
@@ -55,14 +50,49 @@
     },
     data () {
       return {
+        userEmail: '',
         model: {
           email: '',
-          password: '',
-          subscribe: true
+          password: ''
         }
       }
     },
     methods: {
+      signIn () {
+        auth.signInWithEmailAndPassword(this.model.email, this.model.password)
+        .then(
+          function(user) {
+            setTimeout(function() {
+                console.log('logged in')
+                this.model.email = ''
+                this.model.password = ''
+            }, 7000);
+          },
+          function(err) {
+            setTimeout(function() {
+              console.log(err)
+            }, 7000);  
+          }
+        )
+      },
+      signOut () {
+        auth.signOut().then(function() {
+          console.log('Signed Out')
+        }, function(error) {
+          console.error('Sign Out Error', error)
+        })
+      },
+      currUser () {
+        var _this = this
+        auth.onAuthStateChanged(function(user) {
+          if (user) {
+            console.log('logged in')
+            _this.userEmail = auth.currentUser.email
+          } else {
+            console.log('logged out')
+          }
+        })
+      },
       toggleNavbar () {
         document.body.classList.toggle('nav-open')
       },
