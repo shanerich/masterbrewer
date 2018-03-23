@@ -75,17 +75,26 @@ let adminMenu = {
     {
       path: 'createbeer',
       name: 'Create Beer',
-      component: CreateBeer
+      component: CreateBeer,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: 'editbreweries',
       name: 'Edit Breweries',
-      component: EditBreweries
+      component: EditBreweries,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: 'editbeers',
       name: 'Edit Beers',
-      component: EditBeers
+      component: EditBeers,
+      meta: {
+        requiresAuth: true
+      }
     },
   ]
 }
@@ -342,7 +351,7 @@ const routes = [
     ]
   },
   
-  {path: '*', component: NotFound}
+  {path: '*', redirect: '/login'}
 ]
 
 export default routes

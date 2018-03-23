@@ -6,6 +6,9 @@ import App from './App.vue'
 import './util/firebase'
 import VueFire from 'vuefire'
 
+// firebase auth ref
+import { auth } from './util/firebase'
+
 // router setup
 import routes from './routes/routes'
 // vuex store setup
@@ -19,6 +22,20 @@ Vue.use(VueFire)
 const router = new VueRouter({
   routes, // short for routes: routes
   linkActiveClass: 'active'
+})
+
+router.beforeEach((to, from, next) => {
+  let currentUser = auth.currentUser
+  let requiresAuth = to.matched.some(record => 
+    record.meta.requiresAuth)
+
+  if (requiresAuth && !currentUser) {
+    next('Login')
+  } else if (requiresAuth && currentUser) {
+    next() 
+  } else {
+    next()
+  }
 })
 
 /* eslint-disable no-new */

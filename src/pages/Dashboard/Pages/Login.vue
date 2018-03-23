@@ -61,19 +61,14 @@
       signIn () {
         auth.signInWithEmailAndPassword(this.model.email, this.model.password)
         .then(
-          function(user) {
-            setTimeout(function() {
-                console.log('logged in')
-                this.model.email = ''
-                this.model.password = ''
-            }, 7000);
+          user => {
+            console.log('logged in')
+            this.$router.push('/')
           },
-          function(err) {
-            setTimeout(function() {
-              console.log(err)
-            }, 7000);  
+          error => {
+            console.log(error.message)
           }
-        )
+        )  
       },
       signOut () {
         auth.signOut().then(function() {

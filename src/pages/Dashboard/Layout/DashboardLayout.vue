@@ -7,7 +7,7 @@
       <template slot-scope="props" slot="links">
         <sidebar-item :link="{name: 'Dashboard', icon: 'nc-icon nc-chart-pie-35', path: '/admin/overview'}">
         </sidebar-item>
-        <sidebar-item :link="{name: 'Admin', icon: 'nc-icon nc-settings-gear-64'}">
+        <sidebar-item v-if="authenticated" :link="{name: 'Admin', icon: 'nc-icon nc-settings-gear-64'}">
           <sidebar-item :link="{name: 'Create Brewery', path: '/admin/createbrewery'}"></sidebar-item>
           <sidebar-item :link="{name: 'Create Beer', path: '/admin/createbeer'}"></sidebar-item>
           <sidebar-item :link="{name: 'Edit Breweries', path: '/admin/editbreweries'}"></sidebar-item>
@@ -75,7 +75,19 @@
   import DashboardContent from './Content.vue'
   import MobileMenu from './Extra/MobileMenu.vue'
   import UserMenu from './Extra/UserMenu.vue'
+  import { auth } from 'src/util/firebase'
+
   export default {
+    data () {
+      return {
+        authenticated: false
+      }
+    },
+    created: function () {
+      if (auth.currentUser) {
+        this.authenticated = true
+      }
+    },
     components: {
       TopNavbar,
       ContentFooter,
