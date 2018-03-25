@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import state from './state'
 import getWeb3 from '../util/getWeb3'
+import { auth } from '../util/firebase'
 
 Vue.use(Vuex)
 
@@ -19,6 +20,12 @@ export const store = new Vuex.Store({
         web3Copy.isInjected = result.injectedWeb3
         web3Copy.web3Instance = result.web3
         state.web3 = web3Copy
+    },
+    setUser (state, payload) {
+      state.user = payload
+    },
+    clearUser (state) {
+      state.user = null
     }
  },
  actions: {
@@ -30,6 +37,39 @@ export const store = new Vuex.Store({
         }).catch(e => {
           console.log('error in action registerWeb3', e)
         })
+    },
+    signIn ({commit}, payload) {
+      auth.signInWithEmailAndPassword(payload.email, payload.password)
+      .then(
+        user => {
+          const newUser = {
+            id: user.uid,
+            email: user.email
+          }
+          commit('setUser', newUser)
+        }
+      )
+      .catch(
+        error => {
+          console.log(error)
+        }
+      )
+    },
+    signOut ({commit}) {
+      auth.signOut()
+      .then(
+        commit('clearUser')
+      )
+      .catch(
+        error => {
+          console.log(error)
+        }
+      )
     }
+ },
+ getters: {
+   user (state) {
+     return state.user
+   }
  }
 })

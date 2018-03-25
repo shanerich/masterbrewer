@@ -6,7 +6,7 @@
           <fade-render-transition>
             <card>
               <div slot="header">
-                <h3 class="card-title text-center">Login: {{ userEmail }}</h3>
+                <h3 class="card-title text-center">Login: {{ user }}</h3>
               </div>
               <div>
                 <fg-input label="Email address"
@@ -57,9 +57,22 @@
         }
       }
     },
+    computed: {
+      user () {
+        return this.$store.getters.user
+      }
+    },
+    watch: {
+      user (value) {
+        if (value !== null && value !== undefined) {
+          this.$router.push('/')
+        }
+      }
+    },
     methods: {
       signIn () {
-        auth.signInWithEmailAndPassword(this.model.email, this.model.password)
+        this.$store.dispatch('signIn', {email: this.model.email, password: this.model.password})
+        /*auth.signInWithEmailAndPassword(this.model.email, this.model.password)
         .then(
           user => {
             console.log('logged in')
@@ -68,14 +81,15 @@
           error => {
             console.log(error.message)
           }
-        )  
+        )*/ 
       },
       signOut () {
-        auth.signOut().then(function() {
+        this.$store.dispatch('signOut')
+        /*auth.signOut().then(function() {
           console.log('Signed Out')
         }, function(error) {
           console.error('Sign Out Error', error)
-        })
+        })*/
       },
       currUser () {
         var _this = this

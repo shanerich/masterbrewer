@@ -17,15 +17,15 @@
         <span class="navbar-toggler-bar burger-lines"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end">
+        <!-- 
         <ul class="nav navbar-nav mr-auto">
-          <!-- 
           <form class="navbar-form navbar-left navbar-search-form" role="search">
             <div class="input-group">
               <label for="searchInput"></label>
               <i class="nc-icon nc-zoom-split"></i>
               <input id="searchInput" type="text" value="" class="form-control" placeholder="Search...">
             </div>
-          </form> -->
+          </form>
         </ul>
         <ul class="navbar-nav">
           <drop-down>
@@ -72,24 +72,42 @@
 
           </drop-down>
         </ul>
+        -->
+        
+        <div v-if="userIsAuthenticated">
+          <button class="btn btn-sm btn-outline">{{userEmail}}</button>
+          <button @click="signOut" class="btn btn-sm btn-fill btn-danger">Logout</button>
+        </div>
+        
       </div>
     </div>
   </nav>
 </template>
 <script>
+  import { auth } from 'src/util/firebase'
+
   export default {
     computed: {
       routeName () {
         const {name} = this.$route
         return this.capitalizeFirstLetter(name)
+      },
+      userIsAuthenticated () {
+        return this.$store.getters.user !== null && this.$store.getters.user !== undefined
+      },
+      userEmail () {
+        return this.$store.getters.user.email
       }
     },
     data () {
       return {
-        activeNotifications: false
+        activeNotifications: false,
       }
     },
     methods: {
+      signOut () {
+        this.$store.dispatch('signOut')
+      },
       capitalizeFirstLetter (string) {
         return string.charAt(0).toUpperCase() + string.slice(1)
       },
