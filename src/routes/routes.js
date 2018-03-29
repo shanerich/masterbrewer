@@ -17,6 +17,7 @@ import CreateBrewery from 'src/pages/Dashboard/Admin/CreateBrewery.vue'
 import CreateBeer from 'src/pages/Dashboard/Admin/CreateBeer.vue'
 import EditBreweries from 'src/pages/Dashboard/Admin/EditBreweries.vue'
 import EditBeers from 'src/pages/Dashboard/Admin/EditBeers.vue'
+import TestMix from 'src/pages/Dashboard/Admin/TestMixItUp.vue'
 
 // Marketplace pages
 import CollectBreweries from 'src/pages/Dashboard/Marketplace/CollectBreweries.vue'
@@ -68,33 +69,30 @@ let adminMenu = {
       path: 'createbrewery',
       name: 'Create Brewery',
       component: CreateBrewery,
-      meta: {
-        requiresAuth: true
-      }
+      
     },
     {
       path: 'createbeer',
       name: 'Create Beer',
       component: CreateBeer,
-      meta: {
-        requiresAuth: true
-      }
+      
     },
     {
       path: 'editbreweries',
       name: 'Edit Breweries',
       component: EditBreweries,
-      meta: {
-        requiresAuth: true
-      }
+      
     },
     {
       path: 'editbeers',
       name: 'Edit Beers',
       component: EditBeers,
-      meta: {
-        requiresAuth: true
-      }
+      
+    },
+    {
+      path: 'testmix',
+      name: 'Test Mix',
+      component: TestMix,
     },
   ]
 }

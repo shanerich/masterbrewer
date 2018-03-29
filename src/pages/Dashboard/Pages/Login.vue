@@ -6,14 +6,13 @@
           <fade-render-transition>
             <card>
               <div slot="header">
-                <h3 class="card-title text-center">Login: {{ user }}</h3>
+                <h3 class="card-title text-center">Login</h3>
               </div>
               <div>
                 <fg-input label="Email address"
                           placeholder="Enter email"
                           type="email"
                           v-model="model.email">
-
                 </fg-input>
                 <fg-input label="passsword"
                           type="password"
@@ -22,15 +21,7 @@
                 </fg-input>
               </div>
               <div class="text-center">
-                <button @click="signIn" class="btn btn-fill btn-warning btn-wd">Login</button>
-                <button @click="signOut" class="btn btn-fill btn-warning btn-wd">Logout</button>
-                <button @click="currUser" class="btn btn-fill btn-warning btn-wd">User</button>
-                <br>
-                <div class="forgot">
-                  <router-link to="/register" class="card-category">
-                    Forgot your password?
-                  </router-link>
-                </div>
+                <button @click="signIn" class="btn btn-fill btn-warning btn-wd">Admin Login</button>
               </div>
             </card>
           </fade-render-transition>
@@ -50,7 +41,6 @@
     },
     data () {
       return {
-        userEmail: '',
         model: {
           email: '',
           password: ''
@@ -72,35 +62,9 @@
     methods: {
       signIn () {
         this.$store.dispatch('signIn', {email: this.model.email, password: this.model.password})
-        /*auth.signInWithEmailAndPassword(this.model.email, this.model.password)
-        .then(
-          user => {
-            console.log('logged in')
-            this.$router.push('/')
-          },
-          error => {
-            console.log(error.message)
-          }
-        )*/ 
       },
       signOut () {
         this.$store.dispatch('signOut')
-        /*auth.signOut().then(function() {
-          console.log('Signed Out')
-        }, function(error) {
-          console.error('Sign Out Error', error)
-        })*/
-      },
-      currUser () {
-        var _this = this
-        auth.onAuthStateChanged(function(user) {
-          if (user) {
-            console.log('logged in')
-            _this.userEmail = auth.currentUser.email
-          } else {
-            console.log('logged out')
-          }
-        })
       },
       toggleNavbar () {
         document.body.classList.toggle('nav-open')

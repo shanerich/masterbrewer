@@ -8,7 +8,7 @@
     <div class="sidebar-wrapper" ref="sidebarScrollArea">
       <div class="logo">
         <a class="logo-mini"
-           href="https://www.creative-tim.com/product/vue-light-bootstrap-dashboard-pro">
+           href="#">
           <div class="logo-img">
               <img :src="logo" alt="Master Brewer MB logo">
           </div>
@@ -44,7 +44,6 @@
       title: {
         type: String,
         default: 'static/img/master-brewer-logo-text-grad.png'
-        //default: 'Master Brewer'
       },
       backgroundColor: {
         type: String,
@@ -56,7 +55,6 @@
       },
       backgroundImage: {
         type: String,
-        //default: 'static/img/sidebar-5.jpg'
         default: 'static/img/bubbles2.jpg'
       },
       activeColor: {
@@ -69,7 +67,6 @@
       },
       logo: {
         type: String,
-        //default: 'static/img/vue-logo.png'
         default: 'static/img/master-brewer-logo-white.png'
       },
       sidebarLinks: {

@@ -24,6 +24,7 @@
     "google-maps": "^3.2.1",
     "jquery": "^3.2.1",
     "jvectormap-next": "^3.0.0",
+    "mixitup": "^3.2.2",
     "perfect-scrollbar": "0.7.1",
     "sweetalert2": "^7.0.0",
     "v-tooltip": "^2.0.0-rc.25",

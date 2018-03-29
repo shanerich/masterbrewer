@@ -187,9 +187,9 @@
           editBrewery: false
         },
         pagination: {
-          perPage: 10,
+          perPage: 1,
           currentPage: 1,
-          perPageOptions: [10, 25, 50],
+          perPageOptions: [1, 2, 5],
           total: 0
         },
         searchQuery: '',
@@ -226,12 +226,12 @@
         },
         selects: {
           types: [
-          {value: 'Macro Brewery', label: 'Macro Brewery (Greater than 6M Barrels / Year)'},
-          {value: 'Micro Brewery', label: 'Micro Brewery (Less than 6M Barrels / Year)'},
-          {value: 'Nano Brewery', label: 'Nano Brewery (Less than 200 Gallons / Year, Sells Commercially)'},
-          {value: 'Brew Pub', label: 'Brew Pub (Brews / Sells on Premise, at least 25%)'},
-          {value: 'Collaboration Brewery', label: 'Collaboration Brewery (Two breweries brewing where there is no host brewery)'},
-          {value: 'Cidery / Meadery', label: 'Cidery / Meadery (Produces Ciders or Meads)'}
+          {value: 'macro_brewery', label: 'Macro Brewery (Greater than 6M Barrels / Year)'},
+          {value: 'micro_brewery', label: 'Micro Brewery (Less than 6M Barrels / Year)'},
+          {value: 'nano_brewery', label: 'Nano Brewery (Less than 200 Gallons / Year, Sells Commercially)'},
+          {value: 'brew_pub', label: 'Brew Pub (Brews / Sells on Premise, at least 25%)'},
+          {value: 'collaboration_brewery', label: 'Collaboration Brewery (Two breweries brewing where there is no host brewery)'},
+          {value: 'cidery_meadery', label: 'Cidery / Meadery (Produces Ciders or Meads)'}
           ],
           countries: [
           {value: 'United States', label: 'United States'},

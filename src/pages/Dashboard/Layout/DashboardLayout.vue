@@ -7,12 +7,13 @@
       <template slot-scope="props" slot="links">
         <sidebar-item :link="{name: 'Dashboard', icon: 'nc-icon nc-chart-pie-35', path: '/admin/overview'}">
         </sidebar-item>
-        <sidebar-item v-if="userIsAuthenticated" :link="{name: 'Admin', icon: 'nc-icon nc-settings-gear-64'}">
+        <sidebar-item  :link="{name: 'Admin', icon: 'nc-icon nc-settings-gear-64'}">
           <sidebar-item :link="{name: 'Create Brewery', path: '/admin/createbrewery'}"></sidebar-item>
           <sidebar-item :link="{name: 'Create Beer', path: '/admin/createbeer'}"></sidebar-item>
           <sidebar-item :link="{name: 'Edit Breweries', path: '/admin/editbreweries'}"></sidebar-item>
           <sidebar-item :link="{name: 'Edit Beers', path: '/admin/editbeers'}"></sidebar-item>
         </sidebar-item>
+        <sidebar-item :link="{name: 'Test Mix', icon: 'nc-icon nc-settings-gear-64', path: '/admin/testmix'}"></sidebar-item>
         <sidebar-item :link="{name: 'Marketplace', icon: 'nc-icon nc-cart-simple'}">
           <sidebar-item :link="{name: 'Collect Breweries', path: '/marketplace/breweries'}"></sidebar-item>
           <sidebar-item :link="{name: 'Collect Beers', path: '/marketplace/beers'}"></sidebar-item>
@@ -23,6 +24,7 @@
           <sidebar-item :link="{name: 'FAQ', path: '/help/faq'}"></sidebar-item>
           <sidebar-item :link="{name: 'Support', path: '/help/support'}"></sidebar-item>
         </sidebar-item>
+        <sidebar-item :link="{name: 'Login', icon: 'nc-icon nc-key-25', path: '/login'}"></sidebar-item>
         <sidebar-item :link="{name: 'Components', icon: 'nc-icon nc-app'}">
           <sidebar-item :link="{name: 'Buttons', path: '/components/buttons'}"></sidebar-item>
           <sidebar-item :link="{name: 'Grid System', path: '/components/grid-system'}"></sidebar-item>
@@ -49,13 +51,14 @@
           <sidebar-item :link="{name: 'Vector Maps', path: '/maps/vector-map'}"></sidebar-item>
         </sidebar-item>
         <sidebar-item :link="{name: 'Charts', icon: 'nc-icon nc-chart-bar-32', path: '/admin/charts'}"></sidebar-item>
-        <sidebar-item :link="{name: 'Calendar', icon: 'nc-icon nc-single-copy-04', path: '/admin/calendar'}"></sidebar-item>
+        <!--<sidebar-item :link="{name: 'Calendar', icon: 'nc-icon nc-single-copy-04', path: '/admin/calendar'}"></sidebar-item>-->
+        <!--
         <sidebar-item :link="{name: 'Pages', icon: 'nc-icon nc-puzzle-10'}">
           <sidebar-item :link="{name: 'User Page', path: '/pages/user'}"></sidebar-item>
           <sidebar-item :link="{name: 'Login Page', path: '/login'}"></sidebar-item>
           <sidebar-item :link="{name: 'Register', path: '/register'}"></sidebar-item>
           <sidebar-item :link="{name: 'Lock Screen Page', path: '/lock'}"></sidebar-item>
-        </sidebar-item>
+        </sidebar-item> -->
       </template>
     </side-bar>
     <div class="main-panel">

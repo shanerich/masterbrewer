@@ -4,35 +4,18 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute">
         <div class="container">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="/">MasterBrewer</a>
-            <button class="navbar-toggler"
-                    type="button"
-                    @click="showMenu = !showMenu"
-                    data-toggle="collapse"
-                    aria-controls="navigation-index"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation">
-              <span class="navbar-toggler-bar burger-lines"></span>
-              <span class="navbar-toggler-bar burger-lines"></span>
-              <span class="navbar-toggler-bar burger-lines"></span>
-            </button>
-          </div>
-          <el-collapse-transition>
-            <div class="navbar-collapse justify-content-end" id="navbar" v-show="showMenu">
-              <ul class="navbar-nav">
-                <router-link to="/admin" tag="li" class="nav-item">
-                  <a class="nav-link">
-                    <i class="nc-icon nc-chart-pie-35"></i> Back to Dashboard
-                  </a>
-                </router-link>
-                <router-link to="/login" tag="li" class="nav-item">
-                  <a class="nav-link">
-                    <i class="nc-icon nc-mobile"></i> Login
-                  </a>
-                </router-link>
-              </ul>
+            <div class="logo">
+              <a class="logo-mini"
+                href="/">
+                <div class="logo-img">
+                    <img :src="logo" alt="Master Brewer MB logo">
+                </div>
+              </a>
+              <a href="/" class="simple-text logo-normal">
+                <img :src="title" alt="Master Brewer">
+              </a>
             </div>
-          </el-collapse-transition>
+          </div>
         </div>
       </nav>
       <div class="full-page" :data-color="backgroundColor" :class="pageClass">
@@ -56,16 +39,6 @@
              style="background-image: url(static/img/full-screen-image-1.jpg) "></div>
         </div>
     </div>
-    <div class="collapse navbar-collapse off-canvas-sidebar">
-      <ul class="nav nav-mobile-menu">
-        <router-link to="/register" tag="li">
-          <a>Register</a>
-        </router-link>
-        <router-link to="/admin/overview" tag="li">
-          <a>Dashboard</a>
-        </router-link>
-      </ul>
-    </div>
   </div>
 </template>
 <script>
@@ -83,7 +56,15 @@
       backgroundColor: {
         type: String,
         default: 'black'
-      }
+      },
+      title: {
+        type: String,
+        default: 'static/img/master-brewer-logo-text-grad.png'
+      },
+      logo: {
+        type: String,
+        default: 'static/img/master-brewer-logo-white.png'
+      },
     },
     data () {
       return {
@@ -105,6 +86,7 @@
   }
 </script>
 <style>
+  .logo-mini { display: inline-block; }
   .navbar-nav .nav-item p {
     line-height: inherit;
     margin-left: 5px;
@@ -125,4 +107,5 @@
     display: flex;
     justify-content: center;
   }
+  .nav-item { min-width: 239px; }
 </style>
