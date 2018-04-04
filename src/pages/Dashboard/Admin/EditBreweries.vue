@@ -29,14 +29,32 @@
                       style="width: 100%;"
                       :data="queriedData"
                       border>
-              <el-table-column v-for="column in tableColumns"
+              <el-table-column min-width="75" 
+                               label="Logo">
+                <template slot-scope="{row}">
+                  <img :src="row.brewery_imgUrl" alt="Brewery Logo" class="brewery-logo">
+                </template>
+              </el-table-column>
+              <el-table-column min-width="200"
+                               prop="brewery_name"
+                               label="Brewery Name">
+              </el-table-column>
+              <el-table-column min-width="125"
+                               prop="brewery_type"
+                               label="Type">
+              </el-table-column>
+              <el-table-column min-width="100"
+                               prop="country_name"
+                               label="Country">
+              </el-table-column>
+              <!--<el-table-column v-for="column in tableColumns"
                                :key="column.label"
                                :min-width="column.minWidth"
                                :prop="column.prop"
                                :label="column.label">
-              </el-table-column>
+              </el-table-column>-->
               <el-table-column
-                :min-width="75"
+                min-width="75"
                 fixed="right"
                 label="Actions">
                 <template slot-scope="props">
@@ -187,28 +205,33 @@
           editBrewery: false
         },
         pagination: {
-          perPage: 1,
+          perPage: 5,
           currentPage: 1,
-          perPageOptions: [1, 2, 5],
+          perPageOptions: [5, 10, 25],
           total: 0
         },
         searchQuery: '',
         propsToSearch: ['brewery_name'],
         tableColumns: [
           {
+            prop: '<img :src="brewery_img">',
+            label: 'Logo',
+            minWidth: 100
+          },
+          {
             prop: 'brewery_name',
             label: 'Brewery Name',
-            minWidth: 225
+            minWidth: 175
           },
           {
             prop: 'brewery_type',
             label: 'Type',
-            minWidth: 175
+            minWidth: 150
           },
           {
             prop: 'country_name',
             label: 'Country',
-            minWidth: 125
+            minWidth: 100
           }
         ],
         fuseSearch: null,
@@ -226,12 +249,12 @@
         },
         selects: {
           types: [
-          {value: 'macro_brewery', label: 'Macro Brewery (Greater than 6M Barrels / Year)'},
-          {value: 'micro_brewery', label: 'Micro Brewery (Less than 6M Barrels / Year)'},
-          {value: 'nano_brewery', label: 'Nano Brewery (Less than 200 Gallons / Year, Sells Commercially)'},
-          {value: 'brew_pub', label: 'Brew Pub (Brews / Sells on Premise, at least 25%)'},
-          {value: 'collaboration_brewery', label: 'Collaboration Brewery (Two breweries brewing where there is no host brewery)'},
-          {value: 'cidery_meadery', label: 'Cidery / Meadery (Produces Ciders or Meads)'}
+          {value: 'Macro Brewery', label: 'Macro Brewery (Greater than 6M Barrels / Year)'},
+          {value: 'Micro Brewery', label: 'Micro Brewery (Less than 6M Barrels / Year)'},
+          {value: 'Nano Brewery', label: 'Nano Brewery (Less than 200 Gallons / Year, Sells Commercially)'},
+          {value: 'Brew Pub', label: 'Brew Pub (Brews / Sells on Premise, at least 25%)'},
+          {value: 'Collaboration Brewery', label: 'Collaboration Brewery (Two breweries brewing where there is no host brewery)'},
+          {value: 'Cidery Meadery', label: 'Cidery / Meadery (Produces Ciders or Meads)'}
           ],
           countries: [
           {value: 'United States', label: 'United States'},
@@ -382,6 +405,7 @@
 <style scoped>
 .edit-btn { padding-right: 25px; }
 .swal2-confirm { margin-right: 15px; }
+.brewery-logo { width: 100%; }
 .brewery-type, .brewery-country {
     margin-bottom: 1rem;
     width: 100%;

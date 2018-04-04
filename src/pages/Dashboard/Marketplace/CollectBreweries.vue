@@ -55,9 +55,11 @@
                                 :key="brewery['.key']"
                                 class="col-4">
                                 <card>
-                                <div class="text-center">
-                                    <code>{{brewery.brewery_name}}</code>
-                                </div>
+                                    <img :src="brewery.brewery_imgUrl" alt="Brewery Logo" class="brewery-logo">
+                                    <div class="brewery-name">{{brewery.brewery_name}}</div>
+                                    <div class="brewery-location">{{brewery.brewery_city}}, {{brewery.brewery_state}}</div>
+                                    <div class="brewery-type">{{brewery.brewery_type}}</div>
+                                    <button type="submit" class="btn btn-fill btn-info collect-btn">Collect &emsp; 0.002 <img class="eth" src="../../../../static/img/eth.png"></button>
                                 </card>
                             </div>
                         </div>
@@ -102,9 +104,9 @@ export default {
             filter: '',
             sort: '',
             pagination: {
-                perPage: 1,
+                perPage: 6,
                 currentPage: 1,
-                perPageOptions: [1, 2, 5],
+                perPageOptions: [6, 12, 18],
                 total: 0
             },
             searchQuery: '',
@@ -186,5 +188,50 @@ export default {
 </script>
 
 <style scoped>
+.card {
+    width: 100%;
+    position: relative;
+    margin: 39px 0;
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.brewery-logo {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    margin-top: -39px;
+    border-radius: 6px;
+    box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
+.brewery-name {
+    font-size: 15px;
+    text-align: left;
+    width: 100%;
+    color: #333;
+    padding: 21px 0 0 0;
+    font-weight: 600;
+    line-height:19px;
+}
+.brewery-location {
+    font-size: 13px;
+    line-height: 13px;
+}
+.brewery-type {
+    font-size: 13px;
+    font-style: italic;
+}
+.collect-btn {
+    width: 100%;
+    text-align: center;
+    margin: 15px 0 7px 0;
+}
+.btn-info {
+    border: 1px solid #0E65F9;
+    background-color: #0E65F9;
+}
+.eth {
+    margin-top: -2px;
+}
 
 </style>

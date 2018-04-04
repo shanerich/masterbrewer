@@ -36,14 +36,14 @@
                                         :key="option.value">
                             </el-option>
                         </el-select>
-                        <span v-if="country_name === 'United States'">
+                        <span>
                             <span class="row">
                                 <fg-input label="City"
                                         class="col-sm-4"
                                         type="text"
                                         v-model="brewery_city">
                                 </fg-input>
-                                <span class="col-sm-4">
+                                <span class="col-sm-4" v-if="country_name === 'United States'">
                                 <label>State</label>
                                 <el-select size="large"
                                         v-model="brewery_state">
@@ -145,6 +145,7 @@ export default {
                 ],
                 countries: [
                 {value: 'United States', label: 'United States'},
+                {value: 'Belgium', label: 'Belgium'},
                 {value: 'China', label: 'China'},
                 {value: 'Japan', label: 'Japan'}
                 ],
@@ -236,6 +237,7 @@ export default {
             .then(() => {
                 _this.showSwal()
                 _this.brewery_name = ''
+                _this.brewery_imgUrl = ''
                 _this.brewery_type = ''
                 _this.country_name = ''
                 _this.brewery_city = ''
