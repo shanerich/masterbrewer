@@ -71,7 +71,7 @@
           <div class="">
             <p class="card-category">Showing {{from + 1}} to {{to}} of {{total}} entries</p>
           </div>
-          <l-pagination class="pagination-no-border"
+          <l-pagination class="pagination-no-border" color="orange"
                         v-model="pagination.currentPage"
                         :per-page="pagination.perPage"
                         :total="pagination.total">
@@ -212,28 +212,6 @@
         },
         searchQuery: '',
         propsToSearch: ['brewery_name'],
-        tableColumns: [
-          {
-            prop: '<img :src="brewery_img">',
-            label: 'Logo',
-            minWidth: 100
-          },
-          {
-            prop: 'brewery_name',
-            label: 'Brewery Name',
-            minWidth: 175
-          },
-          {
-            prop: 'brewery_type',
-            label: 'Type',
-            minWidth: 150
-          },
-          {
-            prop: 'country_name',
-            label: 'Country',
-            minWidth: 100
-          }
-        ],
         fuseSearch: null,
         upKey: '',
         brewery_name: '',

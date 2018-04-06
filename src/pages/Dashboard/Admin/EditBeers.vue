@@ -29,12 +29,20 @@
                       style="width: 100%;"
                       :data="queriedData"
                       border>
-              <el-table-column v-for="column in tableColumns"
-                               :key="column.label"
-                               :min-width="column.minWidth"
-                               :prop="column.prop"
-                               :label="column.label">
+              <el-table-column min-width="75" 
+                               label="Logo">
+                <template slot-scope="{row}">
+                  <img :src="row.beer_imgUrl" alt="Beer Logo" class="beer-logo">
+                </template>
               </el-table-column>
+              <el-table-column min-width="225"
+                               prop="beer_name"
+                               label="Beer Name">
+              </el-table-column>
+              <el-table-column min-width="225"
+                               prop="beer_brewery_name"
+                               label="Brewery Name">
+              </el-table-column>            
               <el-table-column
                 :min-width="75"
                 fixed="right"
@@ -53,7 +61,7 @@
           <div class="">
             <p class="card-category">Showing {{from + 1}} to {{to}} of {{total}} entries</p>
           </div>
-          <l-pagination class="pagination-no-border"
+          <l-pagination class="pagination-no-border" color="orange"
                         v-model="pagination.currentPage"
                         :per-page="pagination.perPage"
                         :total="pagination.total">
@@ -185,25 +193,13 @@
           editBeer: false
         },
         pagination: {
-          perPage: 10,
+          perPage: 5,
           currentPage: 1,
-          perPageOptions: [10, 25, 50],
+          perPageOptions: [5, 10, 25],
           total: 0
         },
         searchQuery: '',
         propsToSearch: ['beer_name'],
-        tableColumns: [
-          {
-            prop: 'beer_name',
-            label: 'Beer Name',
-            minWidth: 250
-          },
-          {
-            prop: 'beer_brewery_name',
-            label: 'Brewery',
-            minWidth: 250
-          }
-        ],
         fuseSearch: null,
         upKey: '',
         brewery_id: '',
@@ -310,10 +306,7 @@
 <style scoped>
 .edit-btn { padding-right: 25px; }
 .swal2-confirm { margin-right: 15px; }
-.brewery-type, .brewery-country {
-    margin-bottom: 1rem;
-    width: 100%;
-}
+.beer-logo { width: 100%; }
 textarea {
     height: 78px;
 }

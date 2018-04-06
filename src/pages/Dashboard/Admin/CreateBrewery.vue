@@ -9,79 +9,79 @@
                 </template>
                 <form action="#" method="#" @submit.prevent>
                     <div class="row">
-                    <div class="col-8">
-                        <fg-input label="Brewery Name"
-                                type="text"
-                                v-model="brewery_name">
-                        </fg-input>
-                        <label>Brewery Type</label><br>
-                        <el-select class="brewery-type" 
-                                   size="large"
-                                   v-model="brewery_type">
-                            <el-option v-for="option in selects.types"
-                                        class="select-warning"
-                                        :value="option.value"
-                                        :label="option.label"
-                                        :key="option.value">
-                            </el-option>
-                        </el-select>
-                        <label>Brewery Country</label><br>
-                        <el-select class="brewery-country" 
-                                   size="large"
-                                   v-model="country_name">
-                            <el-option v-for="option in selects.countries"
-                                        class="select-warning"
-                                        :value="option.value"
-                                        :label="option.label"
-                                        :key="option.value">
-                            </el-option>
-                        </el-select>
-                        <span>
-                            <span class="row">
-                                <fg-input label="City"
-                                        class="col-sm-4"
-                                        type="text"
-                                        v-model="brewery_city">
-                                </fg-input>
-                                <span class="col-sm-4" v-if="country_name === 'United States'">
-                                <label>State</label>
-                                <el-select size="large"
-                                        v-model="brewery_state">
-                                    <el-option v-for="option in selects.states"
-                                                class="select-warning"
-                                                :value="option.value"
-                                                :label="option.label"
-                                                :key="option.label">
-                                    </el-option>
-                                </el-select>
+                        <div class="col-8">
+                            <fg-input label="Brewery Name"
+                                    type="text"
+                                    v-model="brewery_name">
+                            </fg-input>
+                            <label>Brewery Type</label><br>
+                            <el-select class="brewery-type" 
+                                    size="large"
+                                    v-model="brewery_type">
+                                <el-option v-for="option in selects.types"
+                                            class="select-warning"
+                                            :value="option.value"
+                                            :label="option.label"
+                                            :key="option.value">
+                                </el-option>
+                            </el-select>
+                            <label>Brewery Country</label><br>
+                            <el-select class="brewery-country" 
+                                    size="large"
+                                    v-model="country_name">
+                                <el-option v-for="option in selects.countries"
+                                            class="select-warning"
+                                            :value="option.value"
+                                            :label="option.label"
+                                            :key="option.value">
+                                </el-option>
+                            </el-select>
+                            <span>
+                                <span class="row">
+                                    <fg-input label="City"
+                                            class="col-sm-4"
+                                            type="text"
+                                            v-model="brewery_city">
+                                    </fg-input>
+                                    <span class="col-sm-4" v-if="country_name === 'United States'">
+                                    <label>State</label>
+                                    <el-select size="large"
+                                            v-model="brewery_state">
+                                        <el-option v-for="option in selects.states"
+                                                    class="select-warning"
+                                                    :value="option.value"
+                                                    :label="option.label"
+                                                    :key="option.label">
+                                        </el-option>
+                                    </el-select>
+                                    </span>
                                 </span>
                             </span>
-                        </span>
-                        <fg-input label="Brewery Description">
-                            <textarea v-model="brewery_description" class="form-control" rows="3"></textarea>
-                        </fg-input>
-                    </div>
-                    
-                    <div class="col-2">
-                        <label>Brewery Logo</label><br>
-                        <el-upload
-                            class="upload-demo"
-                            action=""
-                            :http-request="handleAction"
-                            :on-preview="handlePreview"
-                            :on-remove="handleRemove"
-                            :on-success="handleSuccess"
-                            list-type="picture">
-                            <el-button size="small" type="success">Click to upload</el-button>
-                            <!-- <div slot="tip" class="el-upload__tip">jpg/png files with a size less than 500kb</div> -->
-                        </el-upload>
-                        <br>
-                        <label>Verified</label><br>
-                        <l-switch v-model="brewery_verified">
-                            <i class="fa fa-times" slot="off"></i>
-                        </l-switch>
-                        {{gskey}}
-                    </div>
+                            <fg-input label="Brewery Description">
+                                <textarea v-model="brewery_description" class="form-control" rows="3"></textarea>
+                            </fg-input>
+                        </div>
+                        
+                        <div class="col-2">
+                            <label>Brewery Logo</label><br>
+                            <el-upload
+                                class="upload-demo"
+                                ref="upload"
+                                action=""
+                                :http-request="handleAction"
+                                :on-preview="handlePreview"
+                                :on-remove="handleRemove"
+                                :on-success="handleSuccess"
+                                list-type="picture">
+                                <el-button size="small" type="success">Click to upload</el-button>
+                                <!-- <div slot="tip" class="el-upload__tip">jpg/png files with a size less than 500kb</div> -->
+                            </el-upload>
+                            <br>
+                            <label>Verified</label><br>
+                            <l-switch v-model="brewery_verified">
+                                <i class="fa fa-times" slot="off"></i>
+                            </l-switch>
+                        </div>
                     </div>
                 </form>
                 <div class="row">
@@ -136,12 +136,12 @@ export default {
             },
             selects: {
                 types: [
-                {value: 'macro_brewery', label: 'Macro Brewery (Greater than 6M Barrels / Year)'},
-                {value: 'micro_brewery', label: 'Micro Brewery (Less than 6M Barrels / Year)'},
-                {value: 'nano_brewery', label: 'Nano Brewery (Less than 200 Gallons / Year, Sells Commercially)'},
-                {value: 'brew_pub', label: 'Brew Pub (Brews / Sells on Premise, at least 25%)'},
-                {value: 'collaboration_brewery', label: 'Collaboration Brewery (Two breweries brewing where there is no host brewery)'},
-                {value: 'cidery_meadery', label: 'Cidery / Meadery (Produces Ciders or Meads)'}
+                {value: 'Macro Brewery', label: 'Macro Brewery (Greater than 6M Barrels / Year)'},
+                {value: 'Micro Brewery', label: 'Micro Brewery (Less than 6M Barrels / Year)'},
+                {value: 'Nano Brewery', label: 'Nano Brewery (Less than 200 Gallons / Year, Sells Commercially)'},
+                {value: 'Brew Pub', label: 'Brew Pub (Brews / Sells on Premise, at least 25%)'},
+                {value: 'Collaboration Brewery', label: 'Collaboration Brewery (Two breweries brewing where there is no host brewery)'},
+                {value: 'Cidery Meadery', label: 'Cidery / Meadery (Produces Ciders or Meads)'}
                 ],
                 countries: [
                 {value: 'United States', label: 'United States'},
@@ -202,24 +202,23 @@ export default {
                 {value: 'Wisconsin', label: 'Wisconsin'},
                 {value: 'Wyoming', label: 'Wyoming'}
                 ]
-            },
-            fileList2: [{name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}, {name: 'food2.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}]
+            }
         }
     },
     methods: {
         createBrewery() {
-            var _this = this;
+            //var _this = this;
             let imageUrl
             let key
             breweries.push({
-                brewery_name: _this.brewery_name,
-                brewery_imgUrl: _this.brewery_imgUrl,
-                brewery_type: _this.brewery_type,
-                country_name: _this.country_name,
-                brewery_city: _this.brewery_city,
-                brewery_state: _this.brewery_state,
-                brewery_description: _this.brewery_description,
-                brewery_verified: _this.brewery_verified
+                brewery_name: this.brewery_name,
+                brewery_imgUrl: this.brewery_imgUrl,
+                brewery_type: this.brewery_type,
+                country_name: this.country_name,
+                brewery_city: this.brewery_city,
+                brewery_state: this.brewery_state,
+                brewery_description: this.brewery_description,
+                brewery_verified: this.brewery_verified
             })
             .then((data) => {
                 key = data.key
@@ -235,15 +234,16 @@ export default {
                 return breweries.child(key).update({brewery_imgUrl: imageUrl})
             })
             .then(() => {
-                _this.showSwal()
-                _this.brewery_name = ''
-                _this.brewery_imgUrl = ''
-                _this.brewery_type = ''
-                _this.country_name = ''
-                _this.brewery_city = ''
-                _this.brewery_state = ''
-                _this.brewery_description = ''
-                _this.brewery_verified = false;
+                this.showSwal()
+                this.brewery_name = ''
+                this.brewery_imgUrl = ''
+                this.brewery_type = ''
+                this.country_name = ''
+                this.brewery_city = ''
+                this.brewery_state = ''
+                this.brewery_description = ''
+                this.brewery_verified = false
+                this.$refs.upload.clearFiles()
             })
             .catch((error) => {
                 console.log(error)
@@ -271,6 +271,7 @@ export default {
         handleAction(file) {
             //console.log(file.file)
             this.brewery_file = file.file
+           
         }
     }
 }
