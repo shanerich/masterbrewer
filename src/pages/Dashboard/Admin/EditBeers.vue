@@ -133,6 +133,7 @@
   import { Dialog, Table, TableColumn, Select, Option } from 'element-ui'
   import Vue from 'vue'
   import {Pagination as LPagination} from 'src/components/index'
+  import beerStyles from 'src/data/options/beerstyles'
   import { db } from 'src/util/firebase'
   import { beers } from 'src/util/firebase'
   import { breweries } from 'src/util/firebase'
@@ -212,9 +213,7 @@
           withIconsOn: true,
           withIconsOff: false
         },
-        selects: {
-          
-        }
+        beerStyles: beerStyles
       }
     },
     

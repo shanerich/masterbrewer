@@ -13,7 +13,6 @@
           <sidebar-item :link="{name: 'Edit Breweries', path: '/admin/editbreweries'}"></sidebar-item>
           <sidebar-item :link="{name: 'Edit Beers', path: '/admin/editbeers'}"></sidebar-item>
         </sidebar-item>
-        <sidebar-item :link="{name: 'Test Mix', icon: 'nc-icon nc-settings-gear-64', path: '/admin/testmix'}"></sidebar-item>
         <sidebar-item :link="{name: 'Marketplace', icon: 'nc-icon nc-cart-simple'}">
           <sidebar-item :link="{name: 'Collect Breweries', path: '/marketplace/breweries'}"></sidebar-item>
           <sidebar-item :link="{name: 'Collect Beers', path: '/marketplace/beers'}"></sidebar-item>

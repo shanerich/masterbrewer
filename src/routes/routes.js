@@ -16,8 +16,8 @@ import Lock from 'src/pages/Dashboard/Pages/Lock.vue'
 import CreateBrewery from 'src/pages/Dashboard/Admin/CreateBrewery.vue'
 import CreateBeer from 'src/pages/Dashboard/Admin/CreateBeer.vue'
 import EditBreweries from 'src/pages/Dashboard/Admin/EditBreweries.vue'
+import EditBrewery from 'src/pages/Dashboard/Admin/EditBrewery.vue'
 import EditBeers from 'src/pages/Dashboard/Admin/EditBeers.vue'
-import TestMix from 'src/pages/Dashboard/Admin/TestMixItUp.vue'
 
 // Marketplace pages
 import CollectBreweries from 'src/pages/Dashboard/Marketplace/CollectBreweries.vue'
@@ -81,18 +81,17 @@ let adminMenu = {
       path: 'editbreweries',
       name: 'Edit Breweries',
       component: EditBreweries,
-      
+    },
+    {  
+      path: 'editbreweries/:id',
+      name: 'Edit Brewery',
+      component: EditBrewery
     },
     {
       path: 'editbeers',
       name: 'Edit Beers',
       component: EditBeers,
       
-    },
-    {
-      path: 'testmix',
-      name: 'Test Mix',
-      component: TestMix,
     },
   ]
 }
