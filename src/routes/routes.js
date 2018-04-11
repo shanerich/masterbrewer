@@ -18,6 +18,7 @@ import CreateBeer from 'src/pages/Dashboard/Admin/CreateBeer.vue'
 import EditBreweries from 'src/pages/Dashboard/Admin/EditBreweries.vue'
 import EditBrewery from 'src/pages/Dashboard/Admin/EditBrewery.vue'
 import EditBeers from 'src/pages/Dashboard/Admin/EditBeers.vue'
+import EditBeer from 'src/pages/Dashboard/Admin/EditBeer.vue'
 
 // Marketplace pages
 import CollectBreweries from 'src/pages/Dashboard/Marketplace/CollectBreweries.vue'
@@ -93,6 +94,11 @@ let adminMenu = {
       component: EditBeers,
       
     },
+    {
+      path: 'editbeers/:id',
+      name: 'Edit Beer',
+      component: EditBeer,
+    }
   ]
 }
 let marketplaceMenu = {

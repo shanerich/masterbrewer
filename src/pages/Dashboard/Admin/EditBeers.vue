@@ -48,8 +48,11 @@
                 fixed="right"
                 label="Actions">
                 <template slot-scope="props">
-                  <a v-tooltip.top-center="'Edit'" class="btn-warning btn-simple btn-link edit-btn"
-                     @click="handleEdit(props.$index, props.row, props.row['.key'])"><i class="fa fa-2x fa-edit"></i></a>
+                  <router-link :to="'/admin/editbeers/'+props.row['.key']" 
+                               v-tooltip.top-center="'Edit'"
+                               class="edit-btn">
+                    <i class="fa fa-2x fa-edit"></i>
+                  </router-link>
                   <a v-tooltip.top-center="'Delete'" class="btn-danger btn-simple btn-link del-btn"
                      @click="handleDelete(props.row['.key'])"><i class="fa fa-2x fa-times"></i></a>
                 </template>
@@ -69,63 +72,6 @@
         </div>
       </card>
     </div>
-    <!-- MODALS -->
-    <el-dialog
-      title="Edit Beer"
-      :visible.sync="modals.editBeer">
-      <div class="row">
-        <div class="col-md-12">
-          <label>Brewery</label><br>
-            <el-select class="beer-brewery" 
-                        size="large"
-                        placeholder="Brewery Name"
-                        v-model="beer_brewery">
-                <el-option v-for="brewery in _breweries"
-                            class="select-warning"
-                            :value="brewery"
-                            :label="brewery.brewery_name"
-                            :key="brewery['.key']">
-                </el-option>
-            </el-select>
-            <fg-input label="Beer Name"
-                    type="text"
-                    placeholder="Beer Name"
-                    v-model="beer_name">
-            </fg-input>
-            <label>Beer Style</label><br>
-            <el-select class="beer-style" 
-                        size="large"
-                        placeholder="Beer Style"
-                        v-model="beer_style">
-                <el-option v-for="style in selects.styles"
-                            class="select-warning"
-                            :value="style.value"
-                            :label="style.label"
-                            :key="style.value">
-                </el-option>
-            </el-select>
-            <span class="row">
-                <fg-input label="ABV"
-                        class="col-sm-6"
-                        type="text"
-                        placeholder="Beer ABV"
-                        v-model="beer_abv">
-                </fg-input>
-                <fg-input label="IBU"
-                        class="col-sm-6"
-                        type="text"
-                        placeholder="Beer IBU"
-                        v-model="beer_ibu">
-                </fg-input>
-            </span>
-            <fg-input label="Beer Description">
-                <textarea v-model="beer_description" class="form-control" placeholder="Beer Description" rows="3"></textarea>
-            </fg-input>
-          <button class="btn btn-success btn-fill" @click="updateBeer(upKey)">Update</button>
-          <button class="btn btn-danger btn-fill" @click="closeModal('editBeer')">Cancel</button>
-        </div>
-      </div>
-    </el-dialog>
   </div>
 </template>
 
@@ -190,9 +136,6 @@
     },
     data () {
       return {
-        modals: {
-          editBeer: false
-        },
         pagination: {
           perPage: 5,
           currentPage: 1,
@@ -218,12 +161,6 @@
     },
     
     methods: {
-      openModal (name) {
-        this.modals[name] = true
-      },
-      closeModal (name) {
-        this.modals[name] = false
-      },
       showSwal(key) {
         swal({
           title: 'Delete Beer?',

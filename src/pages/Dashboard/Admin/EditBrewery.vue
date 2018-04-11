@@ -122,13 +122,6 @@
                 url: ''
             }
         ],
-        /*brewery_name: '',
-        brewery_type: '',
-        country_name: '',
-        brewery_city: '',
-        brewery_state: '',
-        brewery_description: '',
-        brewery_partnered: false,*/
         switches: {
           withIconsOn: true,
           withIconsOff: false

@@ -57,11 +57,6 @@
                                class="edit-btn">
                     <i class="fa fa-2x fa-edit"></i>
                   </router-link>
-                  <!--<a v-tooltip.top-center="'Edit'" 
-                     class="btn-warning btn-simple btn-link edit-btn"
-                     @click="handleEdit(props.$index, props.row, props.row['.key'])">
-                     <i class="fa fa-2x fa-edit"></i>
-                  </a>-->
                   <a v-tooltip.top-center="'Delete'" 
                      class="btn-danger btn-simple btn-link del-btn"
                      @click="handleDelete(props.row['.key'])">
@@ -84,76 +79,6 @@
         </div>
       </card>
     </div>
-    <!-- MODALS -->
-    <el-dialog
-      title="Edit Brewery"
-      :visible.sync="modals.editBrewery">
-      <div class="row">
-        <div class="col-md-12">
-          <fg-input label="Brewery Name"
-                    type="text"
-                    v-model="brewery_name">
-          </fg-input>
-          <label>Brewery Type</label><br>
-          <el-select class="brewery-type" 
-                      size="large"
-                      v-model="brewery_type">
-              <el-option v-for="option in breweryTypes"
-                          class="select-warning"
-                          :value="option.value"
-                          :label="option.label"
-                          :key="option.value">
-              </el-option>
-          </el-select>
-          <label>Brewery Country</label><br>
-          <el-select class="brewery-country" 
-                      size="large"
-                      v-model="country_name">
-              <el-option v-for="option in breweryCountries"
-                          class="select-warning"
-                          :value="option.value"
-                          :label="option.label"
-                          :key="option.value">
-              </el-option>
-          </el-select>
-          <span v-if="country_name === 'United States'">
-              <span class="row">
-                  <fg-input label="City"
-                          class="col-sm-6"
-                          type="text"
-                          v-model="brewery_city">
-                  </fg-input>
-                  <span class="col-sm-6">
-                  <label>State</label>
-                  <el-select size="large"
-                          v-model="brewery_state">
-                      <el-option v-for="option in breweryStates"
-                                  class="select-warning"
-                                  :value="option.value"
-                                  :label="option.label"
-                                  :key="option.value">
-                      </el-option>
-                  </el-select>
-                  </span>
-              </span>
-          </span>
-          <fg-input label="Brewery Description">
-              <textarea v-model="brewery_description" class="form-control" rows="3"></textarea>
-          </fg-input>
-          <label>Brewery Logo</label><br>
-          <el-upload
-              class="upload-demo"
-              ref="upload"
-              action=""
-              list-type="picture">
-              <el-button size="small" type="success">Click to upload</el-button>
-              <!-- <div slot="tip" class="el-upload__tip">jpg/png files with a size less than 500kb</div> -->
-          </el-upload>
-          <button class="btn btn-success btn-fill" @click="updateBrewery(upKey)">Update</button>
-          <button class="btn btn-danger btn-fill" @click="closeModal('editBrewery')">Cancel</button>
-        </div>
-      </div>
-    </el-dialog>
   </div>
 </template>
 
@@ -249,12 +174,6 @@
     },
     
     methods: {
-      openModal (name) {
-        this.modals[name] = true
-      },
-      closeModal (name) {
-        this.modals[name] = false
-      },
       showSwal(key) {
         swal({
           title: 'Delete Brewery?',
